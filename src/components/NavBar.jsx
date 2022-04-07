@@ -11,13 +11,13 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import CartWidget from './CartWidget';
 
+
 const pages = ['Products', 'Pricing', 'Blog'];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export default function NavBar  ()  {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     // const [anchorElUser, setAnchorElUser] = React.useState(null);
-
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
@@ -34,7 +34,7 @@ export default function NavBar  ()  {
     // };
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" sx={{ bgcolor: 'error.main' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography

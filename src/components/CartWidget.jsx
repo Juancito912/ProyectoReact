@@ -1,11 +1,14 @@
 import React from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { pink } from '@mui/material/colors';
+import IconButton from '@mui/material/IconButton';
+
 
 export default function CartWidget() {
     return (
     <>
-    <ShoppingCartIcon fontSize="large" sx={{ color: pink[500] }} />
+    <IconButton color="primary" aria-label="upload picture" component="span">
+    <ShoppingCartIcon />
+    </IconButton>
     
     </>
     );
