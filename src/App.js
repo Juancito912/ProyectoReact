@@ -8,7 +8,7 @@ export default function App() {
     <>
       <NavBar/>
       <ItemListContainer />
-      {/* <ItemDetailContainer /> */}
+      <ItemDetailContainer />
     </>
   );
 }

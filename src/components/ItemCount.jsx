@@ -1,35 +1,41 @@
-import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import React, { useState,useEffect } from 'react';
+import { Button } from 'react-bootstrap';
+import {IoMdAddCircle,IoMdRemoveCircle} from "react-icons/io";
 
-export default function ItemCount({initial,stock,onAdd}) {
+
+export default function ItemCount({initial,stock}) {
+
     const [cant,setCant] = useState(initial);
     let x=cant;
+    
     return (
     <>
-        <Box sx={{ '& button': { m: 1 }}}>
-            
-            <div>
-                <Button variant="contained" size="small" onClick ={()=>{
+        <div>
+            <Button variant="danger" size="sm" onClick ={()=>{
                     if(cant === 1){
                         setCant(1);
                         x=1;
                     }else{setCant(--x);}
                     
-                }}> - </Button>
-                <Typography component="span" variant="h6">{x}</Typography>
-                <Button variant="contained" size="small" onClick={()=>{
+                }}> <IoMdRemoveCircle/>
+            </Button>
+                <span className='pe-2 ps-2'>{x}</span>
+            <Button variant="danger" size="sm" onClick={()=>{
                     if(cant === stock){
                         setCant(stock);
                         x=stock;
                         alert("No hay mas stock");
                     }else{setCant(++x);}
                     
-                }}> + </Button>
-            </div>
-            <Button variant="contained" color="success" onClick={()=> onAdd(x)}>Agregar al Carrito</Button>
-        </Box>
+                }}> <IoMdAddCircle/> 
+            </Button>
+        </div>
+        
+        <Button variant="outline-danger" size='lg' className='mt-3' onClick={()=> {
+                alert(`Compro ${x} productos`)
+            }}>Agregar al Carrito
+        </Button>
+        
     </>
     );
 }

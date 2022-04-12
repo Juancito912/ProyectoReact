@@ -1,13 +1,13 @@
 import React from 'react';
 import Item from './Item';
-import { Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 export default function ItemList({items}) {
     return (
         <>
-            <Row xs={1} md={3} className="g-4">
+            <Container className='d-flex flex-wrap justify-content-between'>
                 {items.map(obj => <Item key={obj.id} item={obj} />)}
-            </Row> 
+            </Container> 
         </>
     );
     
