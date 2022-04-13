@@ -1,13 +1,13 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { Image,Card } from 'react-bootstrap';
-import ItemCount from '../ItemCount';
+import ItemCount from './ItemCount';
 
 export default function ItemDetail({product}) {
     return (
     <>
         <Container className='d-flex'>
-            <Image variant="left" rounded="true" src={product.img} style={{width:'25rem',height:'30vh'}}></Image>
+            <Image variant="left" rounded="true" src={product.img} style={{width:'25rem',height:'34vh'}}></Image>
             <Card style={{ width: '20rem' }}>
             <Card.Body>
                 <Card.Title  className='pb-3'>{product.name}</Card.Title>

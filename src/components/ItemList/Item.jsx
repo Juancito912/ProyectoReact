@@ -6,7 +6,7 @@ export default function Item({item}) {
         <>
     
             <Card className='bg-dark m-1' style={{color:'white', width: '20rem' }}>
-                <Card.Img variant="top" src={item.img} style={{height:'30vh'}}/>
+                <Card.Img variant="top" src={item.img} style={{height:'30vh'}} className='img-fluid'/>
                 <Card.Body>
                     <Card.Title>{item.name}</Card.Title>
                     <Card.Text>
