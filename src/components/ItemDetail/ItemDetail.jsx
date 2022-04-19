@@ -7,8 +7,8 @@ export default function ItemDetail({product}) {
     return (
     <>
         <Container className='d-flex'>
-            <Image variant="left" rounded="true" src={product.img} style={{width:'25rem',height:'34vh'}}></Image>
-            <Card style={{ width: '20rem' }}>
+            <Image variant="left" rounded="true" src={product.img} style={{width:'50%',height:'40vh'}}></Image>
+            <Card >
             <Card.Body>
                 <Card.Title  className='pb-3'>{product.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{product.description}</Card.Subtitle>

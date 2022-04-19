@@ -7,7 +7,7 @@ export default function ItemList({items}) {
         <>
             <Container className='d-flex flex-wrap justify-content-between'>
                 {items.map(obj => <Item key={obj.id} item={obj} />)}
-            </Container> 
+            </Container>
         </>
     );
     

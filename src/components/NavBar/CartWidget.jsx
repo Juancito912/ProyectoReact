@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 export default function CartWidget() {
     return (
     <>
-    <Button variant="dark"><FaShoppingCart color='white' className='fs-4'/></Button> 
+        <Button variant="dark"><FaShoppingCart color='white' className='fs-4'/></Button> 
     </>
     );
 }

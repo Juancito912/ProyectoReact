@@ -11,23 +11,23 @@ export default function ItemCount({initial,stock}) {
     return (
     <>
         <div>
-            <Button variant="danger" size="sm" onClick ={()=>{
+            <Button variant="danger" size="md"  onClick ={()=>{
                     if(cant === 1){
                         setCant(1);
                         x=1;
                     }else{setCant(--x);}
                     
-                }}> <IoMdRemoveCircle/>
+                }}> <IoMdRemoveCircle className='mb-1'/>
             </Button>
                 <span className='pe-2 ps-2'>{x}</span>
-            <Button variant="danger" size="sm" onClick={()=>{
+            <Button variant="danger" size="md" onClick={()=>{
                     if(cant === stock){
                         setCant(stock);
                         x=stock;
                         alert("No hay mas stock");
                     }else{setCant(++x);}
                     
-                }}> <IoMdAddCircle/> 
+                }}> <IoMdAddCircle className='mb-1'/> 
             </Button>
         </div>
         
