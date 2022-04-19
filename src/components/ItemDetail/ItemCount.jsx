@@ -31,7 +31,7 @@ export default function ItemCount({initial,stock}) {
             </Button>
         </div>
         
-        <Button variant="outline-danger" size='lg' className='mt-3' onClick={()=> {
+        <Button variant="outline-danger" size='lg' className='mt-3 pb-2' onClick={()=> {
                 alert(`Compro ${x} productos`)
             }}>Agregar al Carrito
         </Button>

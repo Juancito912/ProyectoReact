@@ -79,7 +79,6 @@ export const getProductsCategory = (category) => {
 export const getItem = (productId) =>{
     return new Promise((resolve,reject)=>{
         setTimeout(()=>{
-           
             resolve(products[productId]);
         },2000);
     });

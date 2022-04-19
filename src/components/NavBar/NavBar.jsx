@@ -14,8 +14,8 @@ export default function NavBar  ()  {
             <Container className='ms-5'>
             <Link className='text-decoration-none' to={'/'}><Navbar.Brand className='fs-3'> Clothing Store</Navbar.Brand></Link>
             <Nav className="text-center mt-1 mb-1 fs-5">
-                {categories.map(el => (<Nav.Link key={el} className='pe-3'>
-                    <Link className={styles.link} to={`/category/${el}`}>{el}</Link>
+                {categories.map(obj => (<Nav.Link key={obj} className='pe-3'>
+                    <Link className={styles.link} to={`/category/${obj}`}>{obj}</Link>
                     </Nav.Link>))}
                 
             </Nav>
