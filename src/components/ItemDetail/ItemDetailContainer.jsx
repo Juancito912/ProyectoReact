@@ -12,7 +12,7 @@ export default function ItemDetailContainer() {
     const {productId} = useParams();
     useEffect(() => {
         setIsLouding(true);
-        getItem(productId)
+        getItem(parseInt(productId))
             .then((res) => {
                 setProduct(res);
                 setIsLouding(false);
