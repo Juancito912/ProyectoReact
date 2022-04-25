@@ -18,6 +18,7 @@ export default function ItemDetailContainer() {
                 setIsLouding(false);
             })
     }, [productId]);
+    
     return (
         <>
         {isLouding? <IsLouding/> : <ItemDetail product = {product}/>}

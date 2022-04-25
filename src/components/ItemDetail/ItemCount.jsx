@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import {IoMdAddCircle,IoMdRemoveCircle} from "react-icons/io";
 
-
-export default function ItemCount({initial,stock}) {
+export default function ItemCount({initial,stock,onAdd}) {
 
     const [cant,setCant] = useState(initial);
     let x=cant;
@@ -31,9 +30,8 @@ export default function ItemCount({initial,stock}) {
             </Button>
         </div>
         
-        <Button variant="outline-danger" size='lg' className='mt-3 pb-2' onClick={()=> {
-                alert(`Compro ${x} productos`)
-            }}>Agregar al Carrito
+        <Button variant="outline-danger" size='lg' className='mt-3 pb-2' onClick={()=> {onAdd(x)}}>
+            Agregar al Carrito
         </Button>
         
     </>

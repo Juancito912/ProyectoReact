@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
+import ItemCart from './ItemCart';
 import ItemCount from './ItemCount';
 
 export default function ItemDetail({product}) {
+    const [show,setShow] = useState(false);
+    const [unidad,setUnidad] = useState(0);
+    const onAdd = (x)=> {
+        setUnidad(x);
+        setShow(true);
+    }
     return (
     <>
         <Container className='d-flex justify-content-center mt-3'>
@@ -13,9 +20,10 @@ export default function ItemDetail({product}) {
                     <Card.Title  className='pb-3'>{product.name}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">{product.description}</Card.Subtitle>
                     <Card.Text>
-                    Stock disponible: {product.stock} Unidades.
+                    Cantidad: <strong>{unidad} Unidades</strong>. 
                     </Card.Text>
-                    <ItemCount initial={1} stock={product.stock}/>
+                    <Card.Text>Stock Disponible: {product.stock} unidades.</Card.Text>
+                    {!show ? <ItemCount initial={1} stock={product.stock} onAdd={onAdd}/>: <ItemCart/>}
                 </Card.Body>
             </Card>
         </Container>

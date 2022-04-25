@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import CartContainer from './Components/Cart/CartContainer';
 import NotFoundPage from './Components/Errors/NotFoundPage';
 import ItemDetailContainer from './Components/ItemDetail/ItemDetailContainer';
 import ItemListContainer from './Components/ItemList/ItemListContainer';
@@ -16,7 +17,7 @@ export default function App() {
         <Route path='/' element={<ItemListContainer/>}/>
         <Route path='/category/:categoryid' element={<ItemListContainer/>}/>
         <Route path='/item/:productId' element={<ItemDetailContainer/>}/>
-
+        <Route path='/cart' element={<CartContainer/>}/>
         </Routes>
         
       </BrowserRouter>
