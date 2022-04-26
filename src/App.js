@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import CartContainer from './Components/Cart/CartContainer';
-import NotFoundPage from './Components/Errors/NotFoundPage';
-import ItemDetailContainer from './Components/ItemDetail/ItemDetailContainer';
-import ItemListContainer from './Components/ItemList/ItemListContainer';
-import NavBar from './Components/NavBar/NavBar';
+import CartContainer from './components/Cart/CartContainer';
+import NotFoundPage from './components/Errors/NotFoundPage';
+import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
+import ItemListContainer from './components/ItemList/ItemListContainer';
+import NavBar from './components/NavBar/NavBar';
 
 export default function App() {
   return (
