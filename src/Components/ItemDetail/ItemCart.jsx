@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import styles from './ItemDetail.module.css'
+import ItemCartModal from "./ItemCartModal";
+// import styles from './ItemDetail.module.css'
 
-export default function ItemCart(){
+export default function ItemCart({product,quantity}){
+    const [modalShow,setModalShow] = useState(false);
     return (
     <>
-        <Button variant="outline-danger" size='lg' className='mt-3 pb-2'>
-            <Link className={styles.link} to={'/cart'}>Terminar Compra</Link> 
+        <Button variant="outline-danger" onClick={()=> setModalShow(true)} size='lg' className='mt-3 pb-2'>
+            Terminar Compra
         </Button>
+        <ItemCartModal show ={modalShow}
+        onHide ={()=> setModalShow(false)}
+        product = {product}
+        quantity = {quantity}
+        />
         
     </>
     )

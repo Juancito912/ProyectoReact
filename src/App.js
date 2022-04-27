@@ -5,12 +5,14 @@ import NotFoundPage from './Components/Errors/NotFoundPage';
 import ItemDetailContainer from './Components/ItemDetail/ItemDetailContainer';
 import ItemListContainer from './Components/ItemList/ItemListContainer';
 import NavBar from './Components/NavBar/NavBar';
+import CartContext from './Context/CartContext';
 
 export default function App() {
   return (
     <>
+      <CartContext>
       <BrowserRouter>
-      <NavBar/> 
+        <NavBar/> 
         <Routes>
         
         <Route path='*' element={<NotFoundPage/>}/>
@@ -21,6 +23,9 @@ export default function App() {
         </Routes>
         
       </BrowserRouter>
+
+      </CartContext>
+      
     </>
   );
 }

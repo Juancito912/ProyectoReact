@@ -11,7 +11,7 @@ export default function Item({item}) {
                 <Card.Img variant="top" src={item.img} style={{height:'20vh'}} className='img-fluid'/>
                 <Card.Body className='text-center p-1'>
                     <Card.Title>{item.name}</Card.Title>
-                    <Card.Text>Precio: ${item.price}</Card.Text>
+                    <Card.Text className={styles.price}>${item.price}</Card.Text>
                     <Button variant="danger" className='mb-1'><Link className={styles.link} to={`/item/${item.id}`}>Ver mas</Link></Button>
                 </Card.Body>
             </Card>

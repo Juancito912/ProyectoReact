@@ -6,7 +6,6 @@ import CartWidget from './CartWidget';
 import styles from './NavBar.module.css';
 
 export default function NavBar  ()  {
-    
     const categories = ["Remeras","Pantalones","Camperas","Medias"];
     return (
         <>

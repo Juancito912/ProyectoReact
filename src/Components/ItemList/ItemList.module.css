@@ -14,3 +14,11 @@
     margin: 0.7rem;
     background-color: rgb(26, 26, 26);
 }
+.price {
+    font-size: 1.2rem;
+    border-radius: 10%;
+    border:1px;
+    background-color: rgb(189, 47, 0);
+    padding: 0.3rem;
+    margin: 1vh 4rem 1vh 4rem;
+}

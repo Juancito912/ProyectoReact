@@ -23,7 +23,7 @@ export default function ItemDetail({product}) {
                     Cantidad: <strong>{unidad} Unidades</strong>. 
                     </Card.Text>
                     <Card.Text>Stock Disponible: {product.stock} unidades.</Card.Text>
-                    {!show ? <ItemCount initial={1} stock={product.stock} onAdd={onAdd}/>: <ItemCart/>}
+                    {!show ? <ItemCount initial={1} stock={product.stock} onAdd={onAdd}/>: <ItemCart product={product} quantity={unidad} />}
                 </Card.Body>
             </Card>
         </Container>
