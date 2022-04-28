@@ -40,7 +40,6 @@ function CartContext({children}){
     return (
         <>
         <Context.Provider value={{carrito,setCarrito,addItem,removeItem,clear,findInCart}}>{children}</Context.Provider>
-            
         </>
     )
 }

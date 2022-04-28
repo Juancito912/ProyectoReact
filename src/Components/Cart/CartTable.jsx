@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { Table } from "react-bootstrap";
 import { Context } from "../../Context/CartContext";
 import Cart from "./Cart";
+import CartTotal from "./CartTotal";
 
 export default function CartTable({item}){
     let {carrito,clear} = useContext(Context);
@@ -23,7 +24,8 @@ export default function CartTable({item}){
                 {carrito.map( obj => <Cart key={obj.id} item={obj}/>)}
             </tbody>
         </Table>
-        <Button onClick={()=>{clear()}}>Vaciar Carrito</Button>
+        <CartTotal/>
+        <Button className="mt-3" onClick={()=>{clear()}}>Vaciar Carrito</Button>
     </>
     )
 }

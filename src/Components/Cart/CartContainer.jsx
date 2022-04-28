@@ -5,16 +5,10 @@ import CartEmpty from "./CartEmpty";
 
 export default function CartContainer(){
     let {carrito} = useContext(Context);
-    const carritoEmpty= () => {
-        if(carrito.length === 0){
-            return true;
-        }
-        return false;
-    }
+    
     return (
     <>
-        {carritoEmpty()?<CartEmpty/> : <CartTable/>}
-        {/* {carrito.map(obj => <Cart key={obj.id} item={obj}/>)} */}
+        {(carrito.length === 0)?<CartEmpty/> : <CartTable/>}
     </>
     );
 }
