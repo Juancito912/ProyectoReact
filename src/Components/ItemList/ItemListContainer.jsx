@@ -1,36 +1,50 @@
-import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { collection, getDocs, getFirestore, limit, query, where } from 'firebase/firestore';
 import React, {useEffect,useState} from 'react';
 import { useParams } from 'react-router-dom';
-// import { getProducts, getProductsCategory } from '../../Utils/Getproducts';
+import Error404 from '../Errors/Error404';
 import IsLouding from '../Errors/IsLouding';
 import ItemList from './ItemList';
 
 export default function ItemListContainer() {
     const [productos,setProductos] = useState([]);
     const [isLouding,setIsLouding] = useState(true);
+    const [isFailing,setIsFailing] = useState(false);
 
-    const categoryid = useParams();
+    const {categoryid} = useParams();
     useEffect(() => {
         setIsLouding(true);
-        const db = getFirestore();
-        const productsRef = collection(db,'Productos');
-        getDocs(productsRef).then((res)=>{
-            setProductos(res.docs.map({id:res.id,...res.data()}));
-        })
-        // getProductsCategory(categoryid.categoryid)
-        //     .then(res =>{
-        //         setProductos(res);
-        //         setIsLouding(false);
-        //     });
+        setIsFailing(false);
 
-        // setProductos(getProducts());
+        const db = getFirestore();
+        console.log(categoryid);
+        let productsRef;
+        if(!categoryid){
+            productsRef = collection(db,'Productos');
+        }else {
+            productsRef = query(collection(db,'Productos'),where('categoryId','==',categoryid),limit(3));
         
-    }, []);
+        }
+
+        getDocs(productsRef).then((res)=>{
+            setProductos(res.docs.map((item) =>({id:item.id,...item.data()}))); 
+            setIsFailing(false);
+            })
+            .catch((err) =>{
+                console.log(err);
+                setIsFailing(true);
+            })
+            .finally(() =>{
+                setIsLouding(false);
+            })
+        
+    }, [categoryid]);
 
     return (
         <>
-        {/* {(IsLouding) && <IsLouding/>} */}
-        {isLouding? <IsLouding/> : <ItemList items={productos}/>}
+        {(isLouding) && <IsLouding/>}
+        {(isFailing) && <Error404/>}
+        {!(isLouding)&& !(isFailing) && <ItemList items={productos}/>}
+        
         </>
     );
 }

@@ -1,6 +1,7 @@
- import React,{ useEffect, useState} from 'react';
+ import { doc, getDoc, getFirestore } from 'firebase/firestore';
+import React,{ useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import { getItem } from '../../Utils/Getproducts';
+import { getItem } from '../../Utils/Products';
 import IsLouding from '../Errors/IsLouding';
 import ItemDetail from './ItemDetail';
 
@@ -12,11 +13,13 @@ export default function ItemDetailContainer() {
     const {productId} = useParams();
     useEffect(() => {
         setIsLouding(true);
-        getItem(parseInt(productId))
-            .then((res) => {
-                setProduct(res);
-                setIsLouding(false);
-            })
+        const db = getFirestore();
+
+        const productRef = doc(db,"Productos",productId);
+        getDoc(productRef).then((res)=>{
+            setProduct({id: res.id,...res.data()});
+            setIsLouding(false);
+        })
     }, [productId]);
     
     return (
