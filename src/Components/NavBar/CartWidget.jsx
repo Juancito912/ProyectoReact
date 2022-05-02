@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
-import {FaShoppingCart} from 'react-icons/fa';
-import { Button } from 'react-bootstrap';
+import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import { Context } from '../../Context/CartContext';
-import { Link } from 'react-router-dom';
-
+import Typography from '@mui/material/Typography'
 
 export default function CartWidget() {
     let {carrito} = useContext(Context);
@@ -13,12 +11,8 @@ export default function CartWidget() {
     }
     return (
     <>
-        <div>
-            <Button variant="dark"><Link to={'/cart'}><FaShoppingCart color='white' className='fs-4'/></Link></Button> 
-            {/* <span className='text-white'>{(cantProducts === 0)?null:(cantProducts)}</span> anda tmb*/}
-            <span className='text-white' style={{display: (cantProducts === 0)? 'none':'inline-block'}}>{cantProducts}</span>
-        </div>
-        
+        <ShoppingCartRoundedIcon />
+        <Typography variant="h6" color="inehrit">{cantProducts}</Typography>
     </>
     );
 }

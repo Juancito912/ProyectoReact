@@ -1,6 +1,4 @@
-import { Button } from "react-bootstrap";
 import React, { useContext } from "react";
-import { Table } from "react-bootstrap";
 import { Context } from "../../Context/CartContext";
 import Cart from "./Cart";
 import CartTotal from "./CartTotal";
@@ -9,7 +7,7 @@ export default function CartTable({item}){
     let {carrito,clear} = useContext(Context);
     return (
     <>  
-        <Table striped bordered hover variant="dark" className="mt-2">
+        {/* <Table striped bordered hover variant="dark" className="mt-2">
             <thead>
                 <tr>
                 <th></th>
@@ -25,7 +23,7 @@ export default function CartTable({item}){
             </tbody>
         </Table>
         <CartTotal/>
-        <Button className="mt-3" onClick={()=>{clear()}}>Vaciar Carrito</Button>
+        <Button className="mt-3" onClick={()=>{clear()}}>Vaciar Carrito</Button> */}
     </>
     )
 }

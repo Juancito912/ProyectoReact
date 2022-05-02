@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
-import {IoMdAddCircle,IoMdRemoveCircle} from "react-icons/io";
 
 export default function ItemCount({initial,stock,onAdd}) {
 
@@ -9,7 +7,7 @@ export default function ItemCount({initial,stock,onAdd}) {
     
     return (
     <>
-        <div>
+        {/* <div>
             <Button variant="danger" size="md"  onClick ={()=>{
                     if(cant === 1){
                         setCant(1);
@@ -32,7 +30,7 @@ export default function ItemCount({initial,stock,onAdd}) {
         
         <Button variant="outline-danger" size='lg' className='mt-3 pb-2' onClick={()=> {onAdd(x)}}>
             Agregar al Carrito
-        </Button>
+        </Button> */}
         
     </>
     );

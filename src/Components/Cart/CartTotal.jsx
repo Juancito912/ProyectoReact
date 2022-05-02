@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Container } from "react-bootstrap";
 import { Context } from "../../Context/CartContext";
 
 export default function CartTotal(){
@@ -10,9 +9,9 @@ export default function CartTotal(){
     }
     return (
     <>
-        <Container className="text-white fs-4">
+        {/* <Container className="text-white fs-4">
             El total de la compra es: $ {total}.
-        </Container>
+        </Container> */}
     </>
     )
 }

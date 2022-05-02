@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Container } from 'react-bootstrap';
-import { Card } from 'react-bootstrap';
 import ItemCart from './ItemCart';
 import ItemCount from './ItemCount';
 
@@ -13,7 +11,7 @@ export default function ItemDetail({product}) {
     }
     return (
     <>
-        <Container className='d-flex justify-content-center mt-3'>
+        {/* <Container className='d-flex justify-content-center mt-3'>
             <Card className='flex-row'>
             <Card.Img variant="left" rounded="true" src={product.img} style={{height:'40vh'}}/>
                 <Card.Body >
@@ -26,7 +24,7 @@ export default function ItemDetail({product}) {
                     {!show ? <ItemCount initial={1} stock={product.stock} onAdd={onAdd}/>: <ItemCart product={product} quantity={unidad} />}
                 </Card.Body>
             </Card>
-        </Container>
+        </Container> */}
     </>
     );
 }
