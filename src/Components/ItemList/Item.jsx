@@ -1,20 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './ItemList.module.css';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 export default function Item({item}) {
     return (
         <>
-    
-            {/* <Card className={styles.cards}>
-                <Card.Img variant="top" src={item.img} style={{height:'20vh'}} className='img-fluid'/>
-                <Card.Body className='text-center p-1'>
-                    <Card.Title>{item.name}</Card.Title>
-                    <Card.Text className={styles.price}>${item.price}</Card.Text>
-                    <Button variant="danger" className='mb-1'><Link className={styles.link} to={`/item/${item.id}`}>Ver mas</Link></Button>
-                </Card.Body>
-            </Card> */}
-        
+        <Card sx={{ maxWidth: 340 ,maxHeight:330}}>
+            <CardMedia
+                component="img"
+                height="180"
+                image={item.img}
+                alt={item.name}
+                sx={{objectFit:'cover'}}
+            />
+            <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                    {item.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    {item.description}
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <Button size="small">Añadir al carrito</Button>
+                <Button size="small">Ver mas</Button>
+            </CardActions>
+        </Card>
         </>
     )
 }

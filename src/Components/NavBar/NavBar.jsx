@@ -12,7 +12,6 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { color } from '@mui/system';
 
     const categories = ["Remeras","Pantalones","Camperas","Medias"];
     const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -37,7 +36,7 @@ export default function ResponsiveAppBar  ()  {
     }; 
     return (
         <AppBar 
-            position="static"
+            position="sticky"
             sx={{bgcolor:'#d32f2f',
             color: '#000000'
             }}
