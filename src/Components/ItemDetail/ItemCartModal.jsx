@@ -1,7 +1,6 @@
 import React,{useContext} from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../Context/CartContext";
-import styles from './ItemDetail.module.css'
 export default function ItemCartModal(props) {
     let {addItem} = useContext(Context);
     // return (

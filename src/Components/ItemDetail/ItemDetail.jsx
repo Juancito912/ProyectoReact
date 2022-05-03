@@ -11,6 +11,7 @@ export default function ItemDetail({product}) {
     }
     return (
     <>
+    
         {/* <Container className='d-flex justify-content-center mt-3'>
             <Card className='flex-row'>
             <Card.Img variant="left" rounded="true" src={product.img} style={{height:'40vh'}}/>
@@ -25,6 +26,7 @@ export default function ItemDetail({product}) {
                 </Card.Body>
             </Card>
         </Container> */}
+        <ItemCount initial={1} stock={product.stock} onAdd={onAdd}/>
     </>
     );
 }

@@ -24,7 +24,7 @@ export default function Footer() {
     return (
         <>  
             <footer sx={{clear:'both'}}>
-                <Box bgcolor={'#212121'} sx={{display:'flex',mt:0.5,pt:1,flexDirection:{xs:"column",sm:"row"}}} >
+                <Box bgcolor={'#212121'} sx={{display:'flex',mt:0.2,pt:1,flexDirection:{xs:"column",sm:"row"}}} >
                     <Container maxWidth='xl'sx={{pb:{xs:2}}}>
                         <Typography variant="h4" color="white" textAlign={'center'}
                             as={Link} to={'/'}

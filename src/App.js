@@ -19,8 +19,8 @@ export default function App() {
         <Route path='*' element={<NotFoundPage/>}/>
         <Route path='/' element={<ItemListContainer/>}/>
         <Route path='/category/:categoryid' element={<ItemListContainer/>}/>
-        {/* <Route path='/item/:productId' element={<ItemDetailContainer/>}/>
-        <Route path='/cart' element={<CartContainer/>}/> */}
+        <Route path='/item/:productId' element={<ItemDetailContainer/>}/>
+        {/* <Route path='/cart' element={<CartContainer/>}/> */}
         </Routes>
         
         <Footer/>

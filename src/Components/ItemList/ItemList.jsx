@@ -5,9 +5,9 @@ import { Box, Grid } from '@mui/material';
 export default function ItemList({items}) {
     return (
         <>
-            <Box sx={{ flexGrow:1 ,p:2}}>
-                <Grid container spacing={{ xs:1, sm:2, md:3, lg:4}} columns={{xs:2,sm:8,md:12}}> 
-                    {items.map(obj => <Grid item xs={2} sm={4} md={4}> 
+            <Box sx={{flexGrow:1 ,p:2,bgcolor:'#111'}}>
+                <Grid container spacing={{ xs:1, sm:2, md:3}} columns={{xs:2,sm:4,md:12}}> 
+                    {items.map(obj => <Grid item xs={2} sm={2} md={4}> 
                         <Item key={obj.id} item={obj} />
                         </Grid>
                     )}

@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 export default function Item({item}) {
     return (
         <>
-        <Card sx={{ maxWidth: 340 ,maxHeight:330}}>
+        <Card sx={{ maxWidth: 340 ,m:0}}>
             <CardMedia
                 component="img"
                 height="180"
@@ -18,7 +18,7 @@ export default function Item({item}) {
                 alt={item.name}
                 sx={{objectFit:'cover'}}
             />
-            <CardContent>
+            <CardContent sx={{bgcolor:'secondary',alignItems:'center'}}>
                 <Typography gutterBottom variant="h5" component="div">
                     {item.name}
                 </Typography>
@@ -27,8 +27,11 @@ export default function Item({item}) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Añadir al carrito</Button>
-                <Button size="small">Ver mas</Button>
+                <Button variant='contained' color='error' size="medium">Añadir al carrito</Button>
+                <Button as={Link} to={`/item/${item.id}`} variant='contained' color='error' size="medium"
+                sx={{textDecoration:'none', color:'white',ml:2,':hover':{color:'white'}}}>
+                    Ver mas
+                </Button>
             </CardActions>
         </Card>
         </>
