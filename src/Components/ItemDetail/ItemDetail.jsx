@@ -1,32 +1,49 @@
-import React, { useState } from 'react';
-import ItemCart from './ItemCart';
+import React, { useState ,useEffect} from 'react';
 import ItemCount from './ItemCount';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container'
 
 export default function ItemDetail({product}) {
-    const [show,setShow] = useState(false);
     const [unidad,setUnidad] = useState(0);
     const onAdd = (x)=> {
         setUnidad(x);
-        setShow(true);
     }
+    
     return (
     <>
-    
-        {/* <Container className='d-flex justify-content-center mt-3'>
-            <Card className='flex-row'>
-            <Card.Img variant="left" rounded="true" src={product.img} style={{height:'40vh'}}/>
-                <Card.Body >
-                    <Card.Title  className='pb-3'>{product.name}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">{product.description}</Card.Subtitle>
-                    <Card.Text>
-                    Cantidad: <strong>{unidad} Unidades</strong>. 
-                    </Card.Text>
-                    <Card.Text>Stock Disponible: {product.stock} unidades.</Card.Text>
-                    {!show ? <ItemCount initial={1} stock={product.stock} onAdd={onAdd}/>: <ItemCart product={product} quantity={unidad} />}
-                </Card.Body>
-            </Card>
-        </Container> */}
-        <ItemCount initial={1} stock={product.stock} onAdd={onAdd}/>
+        <Card sx={{ maxWidth: '100%',display:'flex',flexDirection:'row' }}>
+            <CardMedia
+                component="img"
+                height="300"
+                image={product.img}
+                alt={product.name}
+            />
+            <Container>
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                    {product.name}
+                    </Typography>
+                    <Typography variant="h6" color="text.secondary">
+                    {product.description}.
+                    </Typography>
+                    <Typography variant="body1" color="text.secondary">
+                    Cantidad: <strong>{unidad} Unidades</strong>.
+                    </Typography>
+                    <Typography variant="subtitle1" color="text.secondary">
+                    Stock Disponible: <strong> {product.stock} unidades.</strong>
+                    </Typography>
+                </CardContent>
+                <CardActions>
+                <ItemCount initial={1} stock={product.stock} onAdd={onAdd} product={product}/>
+                </CardActions>
+                </Container>
+        </Card>
+        
     </>
     );
 }

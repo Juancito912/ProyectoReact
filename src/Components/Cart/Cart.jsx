@@ -5,6 +5,7 @@ export default function Cart({item}){
     let {removeItem} = useContext(Context);
     return (
     <>  
+    asdadw
         {/* <tr>
             <td><img style={{height:'15vh',width: '10rem'}} src={item.img} alt={item.name} /></td>
             <td>{item.name}</td>

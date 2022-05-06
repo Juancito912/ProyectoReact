@@ -1,3 +1,4 @@
+import { Container } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -8,6 +9,7 @@ export default function CartEmpty(){
         <h2 className="text-center pt-4"> ¡Parece que no hay nada por aqui!</h2>
         <Button size="lg" variant="dark"><Link to={'/'}>Ir a Productos</Link> </Button>
     </Container> */}
+    <Container>nada</Container>
         
     </>
     )

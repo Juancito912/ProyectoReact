@@ -6,7 +6,7 @@ import CartTotal from "./CartTotal";
 export default function CartTable({item}){
     let {carrito,clear} = useContext(Context);
     return (
-    <>  
+    <>  {JSON.stringify(carrito)}
         {/* <Table striped bordered hover variant="dark" className="mt-2">
             <thead>
                 <tr>

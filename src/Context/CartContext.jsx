@@ -4,6 +4,8 @@ export const Context = createContext();
 function CartContext({children}){
 
     const [carrito,setCarrito] = useState([]);
+    const [totalQuantity,setTotalQuantity] = useState(0);
+
     const IsThereStock = (item)=>{
         if(item.quantity > item.stock){
             item.quantity = item.stock;
@@ -12,6 +14,15 @@ function CartContext({children}){
         }
         return true;
     }
+    const getQuantity = () => {
+        let cantProducts = 0;
+        for (let item of carrito) {
+            cantProducts += item.quantity;
+        }
+        setTotalQuantity(cantProducts);
+        console.log("hice get")
+    }
+
     const addItem = (item, quantity) =>{
         let index = findInCart(item.id);
         if(index !== -1){
@@ -21,16 +32,19 @@ function CartContext({children}){
         }else{
             item.quantity = quantity;
             setCarrito([...carrito,item]);
+            
         }
-        
+        getQuantity();
     }
 
     const removeItem = (itemId) => {
         let carritoFiltrado = carrito.filter(obj => obj.id !== itemId);
         setCarrito(carritoFiltrado);
+        getQuantity();
     }
     const clear = () => {
         setCarrito([]);
+        getQuantity();
     }
 
     const findInCart = (itemId) => {
@@ -39,7 +53,7 @@ function CartContext({children}){
 
     return (
         <>
-        <Context.Provider value={{carrito,setCarrito,addItem,removeItem,clear,findInCart}}>{children}</Context.Provider>
+        <Context.Provider value={{getQuantity,carrito,setCarrito,addItem,removeItem,clear,findInCart,totalQuantity,setTotalQuantity}}>{children}</Context.Provider>
         </>
     )
 }
