@@ -11,6 +11,8 @@ import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import PinterestIcon from '@mui/icons-material/Pinterest';
+import RoomIcon from '@mui/icons-material/Room';
 
 export default function Footer() {
     const info = {
@@ -24,36 +26,44 @@ export default function Footer() {
     return (
         <>  
             <footer sx={{clear:'both'}}>
-                <Box bgcolor={'#212121'} sx={{display:'flex',mt:0.2,pt:1,flexDirection:{xs:"column",sm:"row"}}} >
-                    <Container maxWidth='xl'sx={{pb:{xs:2}}}>
-                        <Typography variant="h4" color="white" textAlign={'center'}
+                <Box bgcolor={'white'} sx={{display:'flex',mt:0.2,pt:1,flexDirection:{xs:"column",sm:"row"},fontFamily:'Times New Roman'}} >
+                    <Container maxWidth='xl'sx={{flex:1.5,display: 'flex',flexDirection: 'column', pb:{xs:2},pt:1}}>
+                        <Typography variant="h3" color="black"
                             as={Link} to={'/'}
                             sx={{
+                                fontSize:'2.2rem',
                                 textDecoration: 'none',
                                 display:'block',
-                                ':hover': { color: 'white' },
-                                color: 'white', mr: 1, pb:1
+                                ':hover': { color: 'black' },
+                                color: 'black', mr: 1, pb:1
                             }}
                         >
-                            Chothing Store
+                            CHOTHING STORE
                         </Typography>
-                        <Typography textAlign={'center'} variant="body2" color="white" sx={{pb:1}}>
+                        <Typography variant="body1" color="black" sx={{pb:1,mt:1}}>
                             {info.description}
                         </Typography>
                     </Container>
-                    <Container maxWidth='xl' sx={{display:'flex',flexDirection:'column',justifyContent:'space-around',width:{xs:'100%',sm:'90%'},pb:{xs:2}}}>
-                        <Typography variant="subtitle1" component={'div'} color={'white'}><LocalPhoneIcon/>{info.telephone}</Typography>
-                        <Typography variant="subtitle1" component={'div'} color={'white'}><HomeIcon/>{info.direcction}</Typography>
-                        <Typography variant="subtitle1" component={'div'} color={'white'}><DraftsIcon/>{info.email}</Typography>
-                        <Typography variant="subtitle1" component={'div'} color={'white'}><AccessTimeFilledIcon/>{info.time}</Typography>
+                    <Container maxWidth='xl' sx={{flex:1, display:'flex',flexDirection:'column',justifyContent:'space-around',width:{xs:'100%',sm:'90%'},pb:{xs:2}}}>
+                    <Typography variant="h5" color="black" sx={{pb:2}}>Contacto</Typography>
+                        
+                        <Typography variant="subtitle1" component={'div'} sx={{mb:1.2}} color={'black'}><LocalPhoneIcon/>{info.telephone}</Typography>
+                        <Typography variant="subtitle1" component={'div'} sx={{mb:1.2}} color={'black'}><RoomIcon/>{info.direcction}</Typography>
+                        <Typography variant="subtitle1" component={'div'} sx={{mb:1.2}} color={'black'}><DraftsIcon/>{info.email}</Typography>
+                        <Typography variant="subtitle1" component={'div'}  color={'black'}><AccessTimeFilledIcon/>{info.time}</Typography>
                     </Container>
-                    <Container maxWidth='lg' sx={{display:'flex',flexDirection:'column', justifyContent:'center',width:{xs:'100%',md:'40%'},mr:3}}>
-                        <Typography variant="h6" color="white" textAlign={'center'} sx={{pb:2}}>Nuestras redes</Typography>
-                        <Container sx={{display:'flex',flexDirection:'row',justifyContent:'space-between', alignItems:'center'}}>
-                            <LinkMui href="https://web.whatsapp.com/"><WhatsAppIcon fontSize="large" sx={{color:'green'}}/></LinkMui>
-                            <LinkMui href="https://www.facebook.com/"><FacebookIcon fontSize="large" sx={{color:'blue'}}/> </LinkMui>
-                            <LinkMui href="https://www.instagram.com/"><InstagramIcon fontSize="large" sx={{color:'indigo'}}/></LinkMui>
-                        </Container>
+                    <Container maxWidth='lg' sx={{flex:1,display:'flex',flexDirection:'column', justifyContent:'center',width:{xs:'100%'},mr:3}}>
+                        <Typography variant="h5" color="black" sx={{pb:2}}>Links Utiles</Typography>
+                        <Typography as={Link} to={'/'} variant="subtitle1" component={'div'} sx={{mb:1.2,textDecoration:'none',':hover': { color: 'black' }}} color={'black'}>Productos</Typography>
+                        <Typography as={Link} to={'/aboutUs'} variant="subtitle1" component={'div'} sx={{mb:1.2,textDecoration:'none',':hover': { color: 'black' }}} color={'black'}>Sobre Nosotros</Typography>
+                        <Typography as={Link} to={'/cart'} variant="subtitle1" component={'div'} sx={{mb:1.2,textDecoration:'none',':hover': { color: 'black' }}} color={'black'}>Carrito de Compras</Typography>
+                        
+                        <Box sx={{display:'flex',flexDirection:'row',justifyContent:'flex-start', alignItems:'center',pl:0,flexWrap:'wrap'}}>
+                            <LinkMui sx={{borderRadius:'50%',bgcolor:'green',p:0.7,mr:1}} href="https://web.whatsapp.com/"><WhatsAppIcon fontSize="medium" sx={{color:'white'}}/></LinkMui>
+                            <LinkMui sx={{borderRadius:'50%',bgcolor:'#3B5999',p:0.7,mr:1}} href="https://www.facebook.com/"><FacebookIcon fontSize="medium" sx={{color:'white'}}/> </LinkMui>
+                            <LinkMui sx={{borderRadius:'50%',bgcolor:'#E4405F',p:0.7,mr:1}} href="https://www.instagram.com/"><InstagramIcon fontSize="medium" sx={{color:'white'}}/></LinkMui>
+                            <LinkMui sx={{borderRadius:'50%',bgcolor:'#E60023',p:0.7}} href="https://ar.pinterest.com/"><PinterestIcon fontSize="medium" sx={{color:'white'}}/></LinkMui>
+                        </Box>
                     </Container>
                 </Box>
             </footer>

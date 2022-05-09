@@ -6,29 +6,31 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Divider } from '@mui/material';
 
 export default function Item({item}) {
     return (
         <>
-        <Card sx={{ maxWidth: 340 ,m:0}}>
+        <Card sx={{m:0,maxWidth:350}}>
             <CardMedia
                 component="img"
-                height="180"
+                height="200"
                 image={item.img}
                 alt={item.name}
                 sx={{objectFit:'cover'}}
             />
-            <CardContent sx={{bgcolor:'secondary',alignItems:'center'}}>
-                <Typography gutterBottom variant="h5" component="div">
+            <CardContent sx={{bgcolor:'secondary',display:'flex',flexDirection:'column',alignItems:'center',pb:0,pt:1}}>
+                <Typography variant="h5" sx={{fontSize:'1.5rem'}} component="div">
                     {item.name}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    {item.description}
+                <Typography variant="h6" sx={{fontSize:'1.5rem' ,color:'#8e0000'}} component="div">
+                    ${item.price}
                 </Typography>
             </CardContent>
-            <CardActions>
-                <Button variant='contained' color='error' size="medium">Añadir al carrito</Button>
-                <Button as={Link} to={`/item/${item.id}`} variant='contained' color='error' size="medium"
+            <Divider variant="middle"/>
+            <CardActions sx={{display:'flex',flexDirection:'row',justifyContent:'center',m:1}}>
+                <Button variant='contained' color='primary' size="medium">Añadir al carrito</Button>
+                <Button as={Link} to={`/item/${item.id}`} variant='contained' color='primary' size="medium"
                 sx={{textDecoration:'none', color:'white',ml:2,':hover':{color:'white'}}}>
                     Ver mas
                 </Button>

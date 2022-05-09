@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CartContainer from './Components/Cart/CartContainer';
+import CategoriesContainer from './Components/Categories/CategoriesContainer';
 import NotFoundPage from './Components/Errors/NotFoundPage';
 import Footer from './Components/Footer/Footer';
 import ItemDetailContainer from './Components/ItemDetail/ItemDetailContainer';
@@ -15,14 +16,15 @@ export default function App() {
       <BrowserRouter>
         <NavBar/> 
         <Routes>
-        
-        <Route path='*' element={<NotFoundPage/>}/>
-        <Route path='/' element={<ItemListContainer/>}/>
-        <Route path='/category/:categoryid' element={<ItemListContainer/>}/>
-        <Route path='/item/:productId' element={<ItemDetailContainer/>}/>
-        <Route path='/cart' element={<CartContainer/>}/>
+
+          <Route path='*' element={<NotFoundPage/>}/>
+          <Route path='/' element={<CategoriesContainer/>}/>
+          <Route path='/allProducts' element={<ItemListContainer/>}/>
+          <Route path='/category/:categoryid' element={<ItemListContainer/>}/>
+          <Route path='/item/:productId' element={<ItemDetailContainer/>}/>
+          <Route path='/cart' element={<CartContainer/>}/>
+          
         </Routes>
-        
         <Footer/>
       </BrowserRouter>
       </CartContext>

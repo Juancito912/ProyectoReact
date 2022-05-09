@@ -36,7 +36,7 @@ export default function ResponsiveAppBar  ()  {
     }; 
     return (
         <AppBar 
-            position="sticky"
+            position="static"
             sx={{bgcolor:'#d32f2f',
             color: '#000000'
             }}

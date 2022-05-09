@@ -22,7 +22,7 @@ export default function ItemCount(props) {
     return (
     <>
     <Box sx={{display:'flex',maxWidth:250,flexDirection:'column'}}>
-    <Container sx={{width:'80%'}}>
+    <Box sx={{width:'80%'}}>
         <IconButton aria-label="remove" color='error' size='medium' onClick ={()=>{
                     if(cant === 1){
                         setCant(1);
@@ -43,7 +43,7 @@ export default function ItemCount(props) {
                 }}>
             <AddIcon />
         </IconButton>
-        </Container>
+        </Box>
         
         <Button variant="contained" color="error" endIcon={<AddShoppingCartIcon />} onClick={()=> {handleShowModal()}}>Agregar al Carrito</Button>
         <ItemCartModal open={open} onClose={handleClose} quantity={x} product={props.product} aria-labelledby="modal-modal-title"

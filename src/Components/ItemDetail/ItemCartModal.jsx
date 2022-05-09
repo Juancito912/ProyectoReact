@@ -36,12 +36,12 @@ export default function ItemCartModal(props) {
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
            <strong>Precio Total:</strong>  $ {product.price} x {props.quantity} unidades = $ {product.price*props.quantity}.
           </Typography>
-          <Container sx={{mt:1}}>
+          <Box sx={{mt:1}}>
               <Button sx={{bgcolor:'black',color:'white',mr:2}} onClick={()=>{props.onClose()}}>Cancelar</Button>
               <Button as={Link} to={'/cart'} sx={{p:1.1,bgcolor:'black',color:'white',textDecoration:'none',':hover':{color:'white'}}} 
                 size='large' onClick={()=>{addItem(product,props.quantity)}}>
                 Aceptar</Button>
-          </Container>
+          </Box>
         </Box>
       </Modal>
     )

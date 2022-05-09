@@ -1,7 +1,7 @@
 import React, { useContext,useEffect } from 'react';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import { Context } from '../../Context/CartContext';
-import Typography from '@mui/material/Typography'
+import { Badge } from '@mui/material';
 
 export default function CartWidget() {
     let {totalQuantity,getQuantity,carrito} = useContext(Context);
@@ -11,8 +11,9 @@ export default function CartWidget() {
     
     return (
     <>
-        <ShoppingCartRoundedIcon />
-        <Typography variant="h6" color="inehrit">{totalQuantity}</Typography>
+        <Badge color="secondary" badgeContent={totalQuantity}>
+          <ShoppingCartRoundedIcon />
+        </Badge>
     </>
     );
 }
