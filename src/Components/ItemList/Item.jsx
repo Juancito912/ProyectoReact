@@ -14,7 +14,7 @@ export default function Item({item}) {
         <Card sx={{m:0,maxWidth:350}}>
             <CardMedia
                 component="img"
-                height="200"
+                height="250"
                 image={item.img}
                 alt={item.name}
                 sx={{objectFit:'cover'}}
@@ -28,11 +28,10 @@ export default function Item({item}) {
                 </Typography>
             </CardContent>
             <Divider variant="middle"/>
-            <CardActions sx={{display:'flex',flexDirection:'row',justifyContent:'center',m:1}}>
-                <Button variant='contained' color='primary' size="medium">Añadir al carrito</Button>
-                <Button as={Link} to={`/item/${item.id}`} variant='contained' color='primary' size="medium"
-                sx={{textDecoration:'none', color:'white',ml:2,':hover':{color:'white'}}}>
-                    Ver mas
+            <CardActions sx={{display:'flex',flexDirection:'row',justifyContent:'center',m:1}}>                
+            <Button as={Link} to={`/item/${item.id}`} variant='contained' color='error' size="medium"
+                sx={{textDecoration:'none', color:'white',ml:2,':hover':{color:'black'}}}>
+                    Ver Producto
                 </Button>
             </CardActions>
         </Card>

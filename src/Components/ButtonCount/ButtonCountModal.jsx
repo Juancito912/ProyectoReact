@@ -1,9 +1,9 @@
 import React,{useContext} from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../Context/CartContext";
-import { Box, Button, Container, Modal,Typography } from "@mui/material";
+import { Box, Button, Modal,Typography } from "@mui/material";
 
-export default function ItemCartModal(props) {
+export default function ButtonCountModal(props) {
     const product = props.product;    
 
     const style = {
@@ -45,36 +45,4 @@ export default function ItemCartModal(props) {
         </Box>
       </Modal>
     )
-    
-   
-    // return (
-    //     <>
-    //     <Modal
-    //     {...props}
-    //     size="lg"
-    //     aria-labelledby="contained-modal-title-vcenter"
-    //     centered
-    //   >
-    //     <Modal.Header closeButton>
-    //       <Modal.Title id="contained-modal-title-vcenter">
-    //       ¿Quiere agregar este producto al carrito?
-    //       </Modal.Title>
-    //     </Modal.Header>
-    //     <Modal.Body>
-    //         <h4>{props.product.name}</h4>
-    //         <p>{props.quantity} unidades x $ {props.product.price} = $ {props.product.price*props.quantity} </p>
-    //     </Modal.Body>
-    //     <Modal.Footer>
-    //         <Button variant="dark" onClick={props.onHide}>
-    //             {/* <Link className={styles.link} to={`/item/${props.product.id}`}>Disagree</Link>  */}
-    //             Disagree
-    //         </Button>
-    //         <Button variant="dark" onClick={()=> {addItem(props.product,props.quantity)}}>
-    //             <Link className={styles.link} to={'/cart'}>Add Cart</Link> 
-    //         </Button>
-    //     </Modal.Footer>
-    //   </Modal>
-    //     </>
-      
-    // );
 }

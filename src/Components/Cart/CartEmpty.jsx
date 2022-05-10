@@ -1,15 +1,22 @@
-import { Container } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 
 export default function CartEmpty(){
     return (
-    <> 
-    {/* <Container className="text-center">
-        <h2 className="text-center pt-4"> ¡Parece que no hay nada por aqui!</h2>
-        <Button size="lg" variant="dark"><Link to={'/'}>Ir a Productos</Link> </Button>
-    </Container> */}
-    <Container>nada</Container>
+    <>
+
+    <Box sx={{alignItems:'center',display:'flex',flexDirection:'column',mb:2}}>
+        <Typography variant="h5" color="black" sx={{fontSize:'2rem',pb:2,textDecoration:'underline',m:1}} textAlign="center"> 
+            Carrito de Compras
+        </Typography>
+        <Typography variant="h6" color="black" textAlign="center" sx={{mb:2}}> No hay nada por aqui</Typography>
+        <Button as={Link} variant='contained' color='error' to={'/allProducts'}
+            sx={{':hover':{color:'black'},textDecoration:'none'}}
+        >
+            Ver los productos
+        </Button>
+    </Box> 
         
     </>
     )
