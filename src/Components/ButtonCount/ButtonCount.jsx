@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { IconButton, Typography, Button } from '@mui/material';
+import { IconButton, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Box } from '@mui/system';
 import ButtonCountAdd from './ButtonCountAdd';
+import ButtonCountRefresh from './ButtonCountRefresh';
+
 
 export default function ButtonCount(props) {
 
@@ -12,8 +14,8 @@ export default function ButtonCount(props) {
     
     return (
     <>
-    <Box sx={{display:'flex',maxWidth:250,flexDirection:'column'}}>
-    <Box sx={{width:'80%'}}>
+    <Box sx={{display:'flex',flexWrap:'wrap',alignContent:'flex-start',maxWidth:250,flexDirection:`${props.showAddCart?'column':'row'}`,alignItems:'center'}}>
+    <Box sx={{}}>
         <IconButton aria-label="remove" color='error' size='medium' onClick ={()=>{
                     if(cant === 1){
                         setCant(1);
@@ -35,7 +37,7 @@ export default function ButtonCount(props) {
             <AddIcon />
         </IconButton>
         </Box>
-        {props.showAddCart?<ButtonCountAdd onAdd={props.onAdd} qty={x} product={props.product} />:null}
+        {props.showAddCart?<ButtonCountAdd onAdd={props.onAdd} qty={x} productCart={props.product} />:<ButtonCountRefresh setter={props.setter} qty={x} productCart={props.product}/>}
         
         </Box>  
     </>

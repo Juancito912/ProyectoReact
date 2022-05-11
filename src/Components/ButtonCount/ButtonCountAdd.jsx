@@ -15,8 +15,8 @@ export default function ButtonCountAdd(props){
 
     return (
         <>
-            <Button variant="contained" color="error" endIcon={<AddShoppingCartIcon />} onClick={()=> {handleShowModal()}}>Agregar al Carrito</Button>
-            <ButtonCountModal open={open} onClose={handleClose} quantity={props.qty} product={props.product} aria-labelledby="modal-modal-title"
+            <Button variant="contained" sx={{':hover':{color:'black'}}}color="error" endIcon={<AddShoppingCartIcon />} onClick={()=> {handleShowModal()}}>Agregar al Carrito</Button>
+            <ButtonCountModal open={open} onClose={handleClose} quantity={props.qty} product={props.productCart} aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"/>
         </>
     )

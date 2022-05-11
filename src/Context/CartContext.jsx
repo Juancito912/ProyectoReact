@@ -23,6 +23,12 @@ function CartContext({children}){
         console.log("hice get")
     }
 
+    const setQuantityItem = (id,qty) =>{
+        let index = findInCart(id);
+        carrito[index].quantity = qty;
+        setCarrito(carrito);
+        getQuantity();
+    }
     const addItem = (item, quantity) =>{
         let index = findInCart(item.id);
         if(index !== -1){
@@ -53,7 +59,12 @@ function CartContext({children}){
 
     return (
         <>
-        <Context.Provider value={{getQuantity,carrito,setCarrito,addItem,removeItem,clear,findInCart,totalQuantity,setTotalQuantity}}>{children}</Context.Provider>
+        <Context.Provider value={{getQuantity,carrito,setCarrito,addItem,
+        removeItem,clear,findInCart,totalQuantity,setTotalQuantity,
+        setQuantityItem
+        }}
+        >{children}
+        </Context.Provider>
         </>
     )
 }

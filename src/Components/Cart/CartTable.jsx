@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
 import { Context } from "../../Context/CartContext";
-import { Table, TableContainer,Paper } from "@mui/material";
+import { Table, TableContainer,Paper, Button } from "@mui/material";
 import Cart from "./Cart";
 import CartTotal from "./CartTotal";
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
+import { Box } from "@mui/system";
+import { Link } from "react-router-dom";
 
 export default function CartTable({item}){
     let {carrito,clear} = useContext(Context);
@@ -25,12 +27,16 @@ export default function CartTable({item}){
             </TableHead>
             <TableBody>
                 {carrito.map( obj => <Cart key={obj.id} item={obj}/>)}
+                <CartTotal/>
             </TableBody>
             </Table>
         </TableContainer>
-
-        <CartTotal/>
-        {/* <Button className="mt-3" onClick={()=>{clear()}}>Vaciar Carrito</Button> */}
+        <Box sx={{display:'flex',justifyContent:'flex-end',mr:5,p:1}}>
+        <Button variant="contained" as={Link} to={'/'} color="error" sx={{textDecoration:'none',':hover':{color:'black'}}}>Seguir Comprando</Button>
+        <Button variant="contained" color="error" onClick={()=>{clear()}} sx={{':hover':{color:'black'},ml:2}}>Vaciar Carrito</Button>
+        </Box>
+        
+        
     </>
     )
 }
