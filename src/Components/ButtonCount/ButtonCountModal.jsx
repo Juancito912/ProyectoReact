@@ -34,7 +34,7 @@ export default function ButtonCountModal(props) {
             {product.name}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-           <strong>Precio Total:</strong>  $ {product.price} x {props.quantity} unidades = $ {product.price*props.quantity}.
+            <strong>Precio Total:</strong>  $ {product.price} x {props.quantity} unidades = $ {product.price*props.quantity}.
           </Typography>
           <Box sx={{mt:1}}>
               <Button sx={{bgcolor:'black',color:'white',mr:2}} onClick={()=>{props.onClose()}}>Cancelar</Button>

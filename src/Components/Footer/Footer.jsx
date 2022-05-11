@@ -38,7 +38,7 @@ export default function Footer() {
                                 color: 'black', mr: 1, pb:1
                             }}
                         >
-                            CHOTHING STORE
+                            CLOTHING STORE
                         </Typography>
                         <Typography variant="body1" color="black" sx={{pb:1,mt:1}}>
                             {info.description}
