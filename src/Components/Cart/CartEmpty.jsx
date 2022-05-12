@@ -7,9 +7,6 @@ export default function CartEmpty(){
     <>
 
     <Box sx={{alignItems:'center',display:'flex',flexDirection:'column',mb:2}}>
-        <Typography variant="h5" color="black" sx={{fontSize:'2rem',pb:2,textDecoration:'underline',m:1}} textAlign="center"> 
-            Carrito de Compras
-        </Typography>
         <Typography variant="h6" color="black" textAlign="center" sx={{mb:2}}> No hay nada por aqui</Typography>
         <Button as={Link} variant='contained' color='error' to={'/allProducts'}
             sx={{':hover':{color:'black'},textDecoration:'none'}}

@@ -19,7 +19,7 @@ export default function ButtonCountModal(props) {
         p: 4,
     };
 
-    let {addItem} = useContext(Context);
+    let {addItem,findInCart,setQuantityItem} = useContext(Context);
     return (
         <Modal
         {...props}
@@ -39,7 +39,7 @@ export default function ButtonCountModal(props) {
           <Box sx={{mt:1}}>
               <Button sx={{bgcolor:'black',color:'white',mr:2}} onClick={()=>{props.onClose()}}>Cancelar</Button>
               <Button as={Link} to={'/cart'} sx={{p:1.1,bgcolor:'black',color:'white',textDecoration:'none',':hover':{color:'white'}}} 
-                size='large' onClick={()=>{addItem(product,props.quantity)}}>
+                size='large' onClick={()=>{findInCart(product.id)!==-1?setQuantityItem(product.id,props.quantity) :addItem(product,props.quantity)}}>
                 Aceptar</Button>
           </Box>
         </Box>

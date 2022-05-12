@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { IconButton, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Box } from '@mui/system';
 import ButtonCountAdd from './ButtonCountAdd';
-import ButtonCountRefresh from './ButtonCountRefresh';
+import { Context } from '../../Context/CartContext';
 
 
 export default function ButtonCount(props) {
 
     const [cant,setCant] = useState(props.initial);
     let x=cant;
+    let {setQuantityItem}= useContext(Context);
+    const setAll = (x)=>{
+        setCant(x);
+        if(props.productCart){
+            setQuantityItem(props.productCart.id,x);
+            props.setter(x);
+        }
+        
+    }
     
     return (
     <>
@@ -18,9 +27,12 @@ export default function ButtonCount(props) {
     <Box sx={{}}>
         <IconButton aria-label="remove" color='error' size='medium' onClick ={()=>{
                     if(cant === 1){
-                        setCant(1);
                         x=1;
-                    }else{setCant(--x);}
+                        setAll(1);
+                        
+                    }else{
+                        setAll(--x)
+                    }
                     
                 }}>
             <RemoveIcon />
@@ -28,16 +40,17 @@ export default function ButtonCount(props) {
         <Typography variant="h6" color="black" component={"span"}>{x}</Typography>
         <IconButton aria-label="add" color='error' size='medium' onClick={()=>{
                     if(cant === props.stock){
-                        setCant(props.stock);
                         x=props.stock;
+                        setAll(x);
                         alert("No hay mas stock");
-                    }else{setCant(++x);}
-                    
+                    }else{
+                        setAll(++x);
+                    }
                 }}>
             <AddIcon />
         </IconButton>
         </Box>
-        {props.showAddCart?<ButtonCountAdd onAdd={props.onAdd} qty={x} productCart={props.product} />:<ButtonCountRefresh setter={props.setter} qty={x} productCart={props.product}/>}
+        {props.showAddCart?<ButtonCountAdd onAdd={props.onAdd} qty={x} productCart={props.product} />:null}
         
         </Box>  
     </>
