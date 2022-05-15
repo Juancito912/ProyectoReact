@@ -25,8 +25,9 @@ export default function Footer() {
     return (
         <>  
         <Divider sx={{mt:0.5}}/>
+        
             <footer>
-                <Box bgcolor={'white'} sx={{display:'flex',mt:0.2,pt:1,flexDirection:{xs:"column",sm:"row"},fontFamily:'Times New Roman'}} >
+                <Box bgcolor={'white'} sx={{display:'flex',mt:0.2,pt:1,pb:1,flexDirection:{xs:"column",sm:"row"},fontFamily:'Times New Roman'}} >
                     <Container maxWidth='xl'sx={{flex:1.5,display: 'flex',flexDirection: 'column', pb:{xs:2},pt:1}}>
                         <Typography variant="h3" color="black"
                             as={Link} to={'/'}

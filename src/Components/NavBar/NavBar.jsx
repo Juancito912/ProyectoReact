@@ -1,6 +1,6 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Link} from 'react-router-dom';
-import CartWidget from './CartWidget';
+import NavBarCartIcon from './NavBarCartIcon';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,29 +10,22 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-    const categories = ["Remeras","Pantalones","Camperas","Medias"];
+    
 export default function ResponsiveAppBar  ()  {
+    const categories = ["Remeras","Pantalones","Camperas","Medias"];
 
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorElNav, setAnchorElNav] = useState(null);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
     };
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
 
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    }; 
     return (
         <AppBar 
             position="static"
@@ -118,18 +111,9 @@ export default function ResponsiveAppBar  ()  {
                     </Button>
                     ))}
                 </Box>
-    
-                <Box sx={{ flexGrow: 0}}>
-                    <Tooltip title="Carrito de Compras">
-                        <IconButton onClick={handleOpenUserMenu} as={Link} to={'/cart'}
-                            sx={{ pr: 3,color:'black',p: 2,mr: 2, 
-                            textDecoration:'none',display:'flex',alignItems:'center',
-                            ':hover':{color:'black'}}}>
-                            <CartWidget/>
-                        </IconButton>
-                    </Tooltip>
-                    
-                </Box>
+                {/* Cart Icon */}
+                <NavBarCartIcon/>
+            
             </Toolbar>
             </Container>
         </AppBar>

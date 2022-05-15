@@ -32,14 +32,22 @@ export default function CartTable({item}){
                 </TableBody>
                 </Table>
             </TableContainer>
+            <Box sx={{display:'flex',justifyContent:'flex-end',p:1,mr:1}}>
+            <Button variant="contained" color="error" onClick={()=>{clear()}} sx={{':hover':{color:'black'}}}>Vaciar Carrito</Button>
+            
+            </Box>
+            
         </Box>
         <Box sx={{display:{xs:'block',sm:'none'}}}>
-        {carrito.map( obj => <Cart key={obj.id} item={obj} Xs/>)}
-        <CartTotal Xs/>
+            {carrito.map( obj => <Cart key={obj.id} item={obj} Xs/>)}
+            <CartTotal Xs/>
+            <Box sx={{display:'flex',justifyContent:'flex-end',p:1,mr:1}}>
+            <Button variant="contained" color="error" onClick={()=>{clear()}} sx={{':hover':{color:'black'}}}>Vaciar Carrito</Button>
+            
+            </Box>
         </Box>
-        <Box sx={{display:'flex',justifyContent:'flex-end',p:1}}>
-            <Button variant="contained" as={Link} to={'/'} color="success" sx={{textDecoration:'none',':hover':{color:'black'}}}>Seguir Comprando</Button>
-            <Button variant="contained" color="success" onClick={()=>{clear()}} sx={{':hover':{color:'black'},ml:2,mr:2}}>Vaciar Carrito</Button>
+        <Box sx={{display:'flex',justifyContent:'flex-end',p:1,mr:1}}>
+            <Button variant="contained" as={Link} to={'/'} color="primary" sx={{textDecoration:'none',':hover':{color:'black'},mr:2}}>Seguir Comprando</Button>
             <Button variant="contained" as={Link} to={'/'} color="success" sx={{textDecoration:'none',':hover':{color:'black'}}}>Terminar Compra</Button>
         </Box>
 

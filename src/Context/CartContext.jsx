@@ -48,9 +48,15 @@ function CartContext({children}){
         setCarrito(carritoFiltrado);
         getQuantity();
     }
+
     const clear = () => {
         setCarrito([]);
         getQuantity();
+    }
+
+    const getQuantityItem = (id) =>{
+        let itemFiltrado = carrito.find(obj => obj.id === id);
+        return itemFiltrado.quantity;
     }
 
     const findInCart = (itemId) => {
@@ -61,7 +67,7 @@ function CartContext({children}){
         <>
         <Context.Provider value={{getQuantity,carrito,setCarrito,addItem,
         removeItem,clear,findInCart,totalQuantity,setTotalQuantity,
-        setQuantityItem
+        setQuantityItem,getQuantityItem
         }}
         >{children}
         </Context.Provider>

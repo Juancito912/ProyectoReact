@@ -1,6 +1,6 @@
 import React, { useContext} from "react";
 import { Context } from "../../Context/CartContext";
-import {  TableCell,TableRow,Box,List,ListItem,Divider, Typography } from "@mui/material";
+import {  TableCell,TableRow,Box,List,ListItem,Divider, Typography} from "@mui/material";
 
 
 const TAX_RATE = 0.21;

@@ -22,7 +22,8 @@ export default function ItemDetail({product}) {
                 />
             </Container>
             <Container sx={{flex:1,display:'flex',flexDirection:'column',alignItems:{xs:'center',sm:'flex-start'},p:{xs:2,sm:0}}}>
-                <Typography variant='h5' component={'p'} sx={{fontSize:'2.2rem',mb:2}}>{product.name}</Typography>
+                <Typography variant='h5' component={'div'} sx={{fontSize:'2.2rem',mb:2}}>{product.name}</Typography>
+                
                 <Typography variant='body1' component={'p'} sx={{}}>{product.description}</Typography>
                 <Typography variant='h6' component={'p'} sx={{fontSize:'1.7rem',color:'#bf360c'}}>$ {product.price}</Typography>
                 <Typography variant="body1" color="text.secondary">

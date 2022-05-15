@@ -7,14 +7,14 @@ export default function ButtonCountModal(props) {
     const product = props.product;    
 
     const style = {
-        color: 'white',
+        color: 'dark',
         position: 'absolute',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 500,
-        bgcolor: 'rgb(0, 30, 60)',
-        border: '2px solid #000',
+        width: {xs:320,sm:500},
+        bgcolor: 'white',
+        border: '1px solid #000',
         boxShadow: 24,
         p: 4,
     };
@@ -37,9 +37,9 @@ export default function ButtonCountModal(props) {
             <strong>Precio Total:</strong>  $ {product.price} x {props.quantity} unidades = $ {product.price*props.quantity}.
           </Typography>
           <Box sx={{mt:1}}>
-              <Button sx={{bgcolor:'black',color:'white',mr:2}} onClick={()=>{props.onClose()}}>Cancelar</Button>
-              <Button as={Link} to={'/cart'} sx={{p:1.1,bgcolor:'black',color:'white',textDecoration:'none',':hover':{color:'white'}}} 
-                size='large' onClick={()=>{findInCart(product.id)!==-1?setQuantityItem(product.id,props.quantity) :addItem(product,props.quantity)}}>
+              <Button color="error" variant="contained" sx={{mr:2,':hover':{color:'black'}}} onClick={()=>{props.onClose()}}>Cancelar</Button>
+              <Button as={Link} to={'/cart'} color="success" variant="contained" sx={{p:1.1,textDecoration:'none',':hover':{color:'black'}}} 
+                size='large' onClick={()=>{findInCart(product.id) !== -1 ?setQuantityItem(product.id,props.quantity) :addItem(product,props.quantity)}}>
                 Aceptar</Button>
           </Box>
         </Box>
