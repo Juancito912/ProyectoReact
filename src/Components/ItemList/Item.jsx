@@ -38,7 +38,7 @@ export default function Item({item}) {
                     Ver Producto
                 </Button>
                 {findInCart(item.id)=== -1? null:(
-                    <Badge color="secondary" sx={{pl:1}} badgeContent={getQuantityItem(item.id)}>
+                    <Badge color="success" sx={{pl:1}} badgeContent={getQuantityItem(item.id)}>
                     <ShoppingCartRoundedIcon />
                     </Badge>
                 )}

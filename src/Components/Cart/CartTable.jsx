@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import { Context } from "../../Context/CartContext";
 import { Table, TableContainer,Paper, Button } from "@mui/material";
 import Cart from "./Cart";
@@ -9,8 +9,17 @@ import TableCell from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
 import { Box } from "@mui/system";
 import { Link } from "react-router-dom";
+import CartCheckModal from "./CartCheckModal";
 
 export default function CartTable({item}){
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const handleShowModal = () => {
+        
+        handleOpen();
+    }
     let {carrito,clear} = useContext(Context);
     return (
     <>  
@@ -48,7 +57,8 @@ export default function CartTable({item}){
         </Box>
         <Box sx={{display:'flex',justifyContent:'flex-end',p:1,mr:1}}>
             <Button variant="contained" as={Link} to={'/'} color="primary" sx={{textDecoration:'none',':hover':{color:'black'},mr:2}}>Seguir Comprando</Button>
-            <Button variant="contained" as={Link} to={'/'} color="success" sx={{textDecoration:'none',':hover':{color:'black'}}}>Terminar Compra</Button>
+            <Button variant="contained" onClick={()=>{handleOpen()}} color="success" sx={{display:'inline-flex',justifyContent:'center',alignItems:'center',':hover':{color:'black'}}}>Terminar Compra</Button>
+            <CartCheckModal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description"/>
         </Box>
 
         

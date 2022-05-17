@@ -11,6 +11,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import { Divider } from '@mui/material';
 
     
 export default function ResponsiveAppBar  ()  {
@@ -75,10 +76,19 @@ export default function ResponsiveAppBar  ()  {
                         onClose={handleCloseNavMenu}
                         sx={{display: { xs: 'block', md: 'none'}}}
                     >
+                        <MenuItem >
+                            <Typography textAlign="center" as ={Link} to={`/allProducts`} 
+                            sx={{textDecoration:'none', color:'black',':hover':{color:'black'}}}
+                            >
+                                Ver Productos
+                            </Typography>
+                        </MenuItem>
+                        <Divider/>
+                        
                         {categories.map((page) => (
                         <MenuItem key={page} onClick={handleCloseNavMenu}>
                         <Typography textAlign="center" as ={Link} to={`/category/${page}`} 
-                            sx={{textDecoration:'none', color:'black'}}
+                            sx={{textDecoration:'none', color:'black',':hover':{color:'black'}}}
                             >
                             {page}
                         </Typography>

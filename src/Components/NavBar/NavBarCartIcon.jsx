@@ -3,7 +3,7 @@ import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import { Context } from '../../Context/CartContext';
 import { Badge,Popover,IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
-import NavBarCart from './NavBarCart';
+import NavBarCartHover from './NavBarCartHover';
 
 export default function CartWidget() {
     let {totalQuantity,getQuantity,carrito} = useContext(Context);
@@ -56,7 +56,7 @@ export default function CartWidget() {
                 onClose={handlePopoverClose}
                 disableRestoreFocus
             >
-                <NavBarCart/>
+                <NavBarCartHover/>
             </Popover>
     </>
     );

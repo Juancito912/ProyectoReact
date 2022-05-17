@@ -4,6 +4,7 @@ import CartContainer from './Components/Cart/CartContainer';
 import CategoriesContainer from './Components/Categories/CategoriesContainer';
 import NotFoundPage from './Components/Errors/NotFoundPage';
 import Footer from './Components/Footer/Footer';
+import FormContainer from './Components/Form/FormContainer';
 import ItemDetailContainer from './Components/ItemDetail/ItemDetailContainer';
 import ItemListContainer from './Components/ItemList/ItemListContainer';
 import NavBar from './Components/NavBar/NavBar';
@@ -23,7 +24,7 @@ export default function App() {
           <Route path='/category/:categoryid' element={<ItemListContainer/>}/>
           <Route path='/item/:productId' element={<ItemDetailContainer/>}/>
           <Route path='/cart' element={<CartContainer/>}/>
-          
+          <Route path='/form' element={<FormContainer/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>

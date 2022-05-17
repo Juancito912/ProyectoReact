@@ -23,7 +23,7 @@ export default function CartTotal({Xs}){
           <Box sx={{ width: '100%', bgcolor: 'background.paper' ,flexDirection:'column'}}>
       
             <List>
-              <ListItem>
+              <ListItem sx={{justifyContent:'center'}}>
                 <Typography variant="h3" color="black" sx={{fontSize:'1.5rem'}}>Resumen de la Compra</Typography>
               </ListItem>
               <Divider />

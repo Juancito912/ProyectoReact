@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import {Typography,Box,Divider,Container} from '@mui/material'
 import { Context } from "../../Context/CartContext";
 
-export default function NavBarCart(){
+export default function NavBarCartHover(){
     const {carrito} = useContext(Context);
     let total = 0;
     for (const obj of carrito) {
-      total += obj.quantity*obj.price;
+        total += obj.quantity*obj.price;
   }
     if(carrito.length === 0){
         return (
