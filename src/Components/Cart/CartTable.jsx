@@ -16,10 +16,6 @@ export default function CartTable({item}){
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const handleShowModal = () => {
-        
-        handleOpen();
-    }
     let {carrito,clear} = useContext(Context);
     return (
     <>  

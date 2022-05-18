@@ -5,11 +5,8 @@ import {  TableCell,TableRow,Box,List,ListItem,Divider, Typography} from "@mui/m
 
 const TAX_RATE = 0.21;
 export default function CartTotal({Xs}){
-    let {carrito} = useContext(Context);
-    let subtotal = 0;
-    for (const obj of carrito) {
-      subtotal += obj.quantity*obj.price;
-  }
+    let {getTotal} = useContext(Context);
+    let subtotal = getTotal();
   const calculateTax = ()=>{
       return subtotal*TAX_RATE;
   }

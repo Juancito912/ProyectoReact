@@ -1,4 +1,4 @@
-import React, { useContext,useEffect } from 'react';
+import React, { useContext,useEffect ,useState} from 'react';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import { Context } from '../../Context/CartContext';
 import { Badge,Popover,IconButton } from '@mui/material';
@@ -11,7 +11,7 @@ export default function CartWidget() {
     useEffect(() => {
         getQuantity();
     }, [carrito]);
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
 
     const handlePopoverOpen = (event) => {
         setAnchorEl(event.currentTarget);

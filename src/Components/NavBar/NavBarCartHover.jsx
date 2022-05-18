@@ -3,11 +3,8 @@ import {Typography,Box,Divider,Container} from '@mui/material'
 import { Context } from "../../Context/CartContext";
 
 export default function NavBarCartHover(){
-    const {carrito} = useContext(Context);
-    let total = 0;
-    for (const obj of carrito) {
-        total += obj.quantity*obj.price;
-  }
+    const {carrito,getTotal} = useContext(Context);
+    let total = getTotal();
     if(carrito.length === 0){
         return (
             <>

@@ -15,7 +15,7 @@ import { Divider } from '@mui/material';
 
     
 export default function ResponsiveAppBar  ()  {
-    const categories = ["Remeras","Pantalones","Camperas","Medias"];
+    const categories = ["Remeras","Pantalones","Camperas","Medias","Zapatillas","Accesorios"];
 
     const [anchorElNav, setAnchorElNav] = useState(null);
 

@@ -62,12 +62,27 @@ function CartContext({children}){
     const findInCart = (itemId) => {
         return carrito.findIndex(obj => obj.id === itemId);
     }
+    const getTotal= ()=>{
+        let total = 0;
+        for (const obj of carrito) {
+            total += obj.quantity*obj.price;
+        }
+        return total;
+    }
+    const packCart = () =>{
+        let pack =[] ;
+        
+        for (const item of carrito) {
 
+            pack.push({id:item.id,name:item.name,price:item.price,quantity:item.quantity})
+        }
+        return pack;
+    }
     return (
         <>
         <Context.Provider value={{getQuantity,carrito,setCarrito,addItem,
         removeItem,clear,findInCart,totalQuantity,setTotalQuantity,
-        setQuantityItem,getQuantityItem
+        setQuantityItem,getQuantityItem,getTotal,packCart
         }}
         >{children}
         </Context.Provider>

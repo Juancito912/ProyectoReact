@@ -1,4 +1,4 @@
-import { collection, getDocs, getFirestore, limit, query, where } from 'firebase/firestore';
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 import React, {useEffect,useState} from 'react';
 import { useParams } from 'react-router-dom';
 import Error404 from '../Errors/Error404';
@@ -21,7 +21,7 @@ export default function ItemListContainer() {
         if(!categoryid){
             productsRef = collection(db,'Productos');
         }else {
-            productsRef = query(collection(db,'Productos'),where('categoryId','==',categoryid),limit(3));
+            productsRef = query(collection(db,'Productos'),where('categoryId','==',categoryid));
         
         }
 
