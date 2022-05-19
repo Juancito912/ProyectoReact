@@ -74,7 +74,10 @@ function CartContext({children}){
         
         for (const item of carrito) {
 
-            pack.push({id:item.id,name:item.name,price:item.price,quantity:item.quantity})
+            pack.push({id:item.id,
+                name:item.name,
+                price:item.price,
+                quantity:item.quantity})
         }
         return pack;
     }

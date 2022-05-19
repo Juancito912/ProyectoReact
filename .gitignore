@@ -11,6 +11,10 @@
 #dev
 trash
 
+#firebase
+.firebaserc
+firebase.json
+.firebase
 # production
 /build
 

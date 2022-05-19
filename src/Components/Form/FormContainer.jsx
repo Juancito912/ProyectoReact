@@ -8,78 +8,8 @@ import { Context } from "../../Context/CartContext";
 import IsLouding from "../Errors/IsLouding";
 import Error404 from "../Errors/Error404";
 import Formfinish from "./FormFinish";
+import { validatePassword,validateName,validateMail } from "./FormValidate";
 
-const specialCharacter = ['&','@','#','%','$','/','(',')','=','-','_','>','<','|','°','?','¿','!','¡']
-const numbers = ['0','1','2','3','4','5','6','7','8','9'];
-
-  const isThereNumber = (character) => {
-    if(numbers.findIndex(element => element === character) !== -1) {
-      return true;
-    }
-    return false;
-  }
-  const isThereSpecialCharacter = (character) => {
-    if(specialCharacter.findIndex(element => element === character) !== -1) {
-      return true;
-    }
-    return false;
-  }
-  const validateNombre =(string)=> {
-    for (let i = 0; i< string.length; i++) {
-      let character = string.charAt(i);
-      if(isThereNumber(character)) {
-        return false;
-      }
-      if(isThereSpecialCharacter(character)){
-        return false;
-      }
-    }
-    return true;
-  }
-  const validateMail = (string) => {
-    if(string.search("@") === -1){
-      return false;
-    }
-    if(string.search(".com") === -1){
-      return false;
-    }
-    return true;
-  }
-  const searchNum = (string)=> {
-    for (let i = 0; i < string.length; i++) {
-      let character = string.charAt(i);
-      if(isThereNumber(character)) {
-        return true;
-      }
-      
-    }
-    return false;
-  }
-  const searchSpecialCharacter = (string)=> {
-    for (let i = 0; i < string.length; i++) {
-      let character = string.charAt(i);
-      if(isThereSpecialCharacter(character)) {
-        return true;
-      }
-    }
-    return false;
-  }
-  const searchMayus = (string) => {
-    for (let i = 0; i< string.length; i++) {
-      let character = string.charAt(i);
-      if(character === character.toUpperCase()) {
-          return true;
-      }
-    }
-  return false;
-  }
-  const validateContraseña = (string) => {
-    if(searchMayus(string)&&searchSpecialCharacter(string)&&searchNum(string)){
-      return true;
-    }
-    return false;
-  }
-  
 export default function FormContainer (){
   const {getTotal,packCart} = useContext(Context);
   const { register, handleSubmit, watch,formState: { errors } } = useForm();
@@ -140,6 +70,7 @@ export default function FormContainer (){
         {(isLouding) && <IsLouding/>}
         {(isFailing) && <Error404/>}
         {(orderId) && <Formfinish id={orderId}/>}
+        
         {!(isLouding)&& !(isFailing) && !(orderId) &&
           <form onSubmit={handleSubmit(onSubmit)}>
             
@@ -161,7 +92,7 @@ export default function FormContainer (){
                     required:true,
                     minLength:3,
                     maxLength:16,
-                    validate:validateNombre
+                    validate:validateName
                 })}
                 label={'Nombre'}
                 />
@@ -179,7 +110,7 @@ export default function FormContainer (){
                     required:true,
                     minLength:3,
                     maxLength:16,
-                    validate:validateNombre
+                    validate:validateName
                 })}
                 label={'Apellido'}
                 />
@@ -211,7 +142,7 @@ export default function FormContainer (){
                     required:true,
                     minLength:8,
                     maxLength:20,
-                    validate:validateContraseña
+                    validate:validatePassword
                 })}
                 label={'Contraseña'}
                 endAdornment={
