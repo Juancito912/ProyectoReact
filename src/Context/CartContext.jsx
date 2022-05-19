@@ -77,7 +77,9 @@ function CartContext({children}){
             pack.push({id:item.id,
                 name:item.name,
                 price:item.price,
-                quantity:item.quantity})
+                quantity:item.quantity,
+                stockNuevo:item.stock-item.quantity,
+                })
         }
         return pack;
     }

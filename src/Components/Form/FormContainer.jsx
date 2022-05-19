@@ -22,39 +22,55 @@ export default function FormContainer (){
       const [isLouding,setIsLouding] = useState(false);
       const [orderId,setOrderId] = useState('');
       const [isFailing,setIsFailing] = useState(false);
-
       const createOrder = (data)=>{
         setIsLouding(true);
-        const order = {
-          buyer:{name:data.username+" "+ data.lastName, email:data.email, password:data.password},
-          items :[...packCart()],
-          total: getTotal(),
-          date:serverTimestamp(),
-        }
+        
         const db= getFirestore();
-        const ordersCollection = collection(db,'Orders');
-
-        addDoc(ordersCollection,order)
-          .then(({id}) => {
-            const orderRef = doc(db,'Productos',id);
-            getDoc(orderRef)
-              .then((res)=>{
-                
-                setOrderId(res.id);
-                
+        // Primero verificamos que haya stock o que el producto exista en la base de datos
+        const batch = writeBatch(db);
+        for (let item of packCart()) {
+          const artRef = doc(db,'Productos',item.id);
+          batch.update(artRef,{stock:item.stockNuevo});
+        }
+        batch.commit()
+          .then(res=>{
+            // Creamos la orden
+            const order = {
+              buyer:{name:data.username+" "+ data.lastName, email:data.email, password:data.password},
+              items :[...packCart()],
+              total: getTotal(),
+              date:serverTimestamp(),
+            }
+            
+            const ordersCollection = collection(db,'Orders');
+            // agarramos el id de compra
+            addDoc(ordersCollection,order)
+              .then(({id}) => {
+                const orderRef = doc(db,'Productos',id);
+                getDoc(orderRef)
+                  .then((res)=>{
+                    setOrderId(res.id);
+                    
+                  })
+                  .catch((err) =>{
+                    console.log(err);
+                    setIsFailing(true);
+                  })
+                  
               })
-              .catch((err) =>{
-                console.log(err);
-                setIsFailing(true);
-              })
-              .finally(()=> {
-                setIsLouding(false);
-            })
-          
           })
+          .catch(err=>{
+            console.log(err);
+            setIsFailing(true);
+          })
+          .finally(()=> {
+            setIsLouding(false);
+        })
+        
       }
 
       const onSubmit =( data) => {
+        
         console.log(data);
         createOrder(data);
         
