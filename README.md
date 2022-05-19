@@ -1,5 +1,5 @@
 # Proyecto Final React CoderHouse
-***
+
 ## Clothing Stores
 Clothing store es una pagina eCommerce diseñada en react como proyecto final de curso de CorderHouse.
 ***
