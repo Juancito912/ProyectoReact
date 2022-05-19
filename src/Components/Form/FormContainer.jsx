@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Box ,FormControl,InputAdornment,InputLabel,OutlinedInput,IconButton,FormHelperText, Typography, Button} from "@mui/material"
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import {addDoc,collection,doc,getDoc,getFirestore,serverTimestamp} from "firebase/firestore";
+import {addDoc,collection,doc,getDoc,getFirestore,serverTimestamp,writeBatch} from "firebase/firestore";
 import { Context } from "../../Context/CartContext";
 import IsLouding from "../Errors/IsLouding";
 import Error404 from "../Errors/Error404";
@@ -33,6 +33,7 @@ export default function FormContainer (){
         }
         const db= getFirestore();
         const ordersCollection = collection(db,'Orders');
+
         addDoc(ordersCollection,order)
           .then(({id}) => {
             const orderRef = doc(db,'Productos',id);

@@ -108,6 +108,15 @@ export default function ResponsiveAppBar  ()  {
                     Clothing Store
                 </Typography>
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                <Button as ={Link} to={`/allProducts`}
+                        onClick={handleCloseNavMenu}
+                        sx={{ my: 2, color: 'black',
+                        display: 'block',
+                        textDecoration:'none',
+                        ':hover':{color:'white'}}}
+                    >
+                    Productos
+                    </Button>
                     {categories.map((page) => (
                     <Button as ={Link} to={`/category/${page}`}
                         key={page}

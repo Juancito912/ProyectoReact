@@ -85,9 +85,10 @@ function CartContext({children}){
         <>
         <Context.Provider value={{getQuantity,carrito,setCarrito,addItem,
         removeItem,clear,findInCart,totalQuantity,setTotalQuantity,
-        setQuantityItem,getQuantityItem,getTotal,packCart
+        setQuantityItem,getQuantityItem,getTotal,packCart,
         }}
-        >{children}
+        >
+            {children}
         </Context.Provider>
         </>
     )

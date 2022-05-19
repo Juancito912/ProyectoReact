@@ -62,7 +62,7 @@ export default function CartCheckModal(props){
             ))}
             <CartTotal Xs/>
             <Container sx={{display:'flex',justifyContent:'center'}}>
-              <Button sx={{mr:2}} variant="contained" color="error" onClick={()=>{props.onClose()}}>
+              <Button sx={{mr:2,':hover':{color:'black'}}} variant="contained" color="error" onClick={()=>{props.onClose()}}>
                 Seguir comprando
               </Button>
               <Button as={Link} to={'/form'} sx={{display:'inline-flex',justifyContent:'center',alignItems:'center',p:1.1,textDecoration:'none',':hover':{color:'black'}}} variant="contained" color="success">
