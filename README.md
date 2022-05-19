@@ -1,3 +1,11 @@
+# Proyecto Final React CoderHouse
+
+## Clothing Stores
+Clothing store es una pagina eCommerce diseñada en react como proyecto final de curso de CorderHouse.
+
+## Caracteristicas 
+Obtiene los productos de la base de datos de Firebase y los muestra al cliente. Este mismo al terminar la compra envia sus datos y sus productos comprados a la misma base de datos. La pagina tiene filtros por categorias para la mayor comodidad en la busquedad de los productos. Se puede agregar y quitar productos del carrito y vaciarlo si es necesario. Se muestra la cantidad de productos elejidos en total en el Icono del Carrito en la NavBar y en cada producto elejido se muestra la cantidad de solo ese producto.
+
 link:https://my-react-app-d4a35.web.app/
 
 # Getting Started with Create React App

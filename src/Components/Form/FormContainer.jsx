@@ -88,7 +88,7 @@ export default function FormContainer (){
       const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
       };
-      const [order,setOrder] = useState(false);
+      
       const [isLouding,setIsLouding] = useState(false);
       const [orderId,setOrderId] = useState('');
       const [isFailing,setIsFailing] = useState(false);
@@ -108,7 +108,7 @@ export default function FormContainer (){
             const orderRef = doc(db,'Productos',id);
             getDoc(orderRef)
               .then((res)=>{
-                setOrder(true);
+                
                 setOrderId(res.id);
                 
               })

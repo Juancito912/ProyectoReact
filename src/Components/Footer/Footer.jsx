@@ -12,6 +12,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import RoomIcon from '@mui/icons-material/Room';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 export default function Footer() {
     const info = {
@@ -21,13 +22,19 @@ export default function Footer() {
         time: " Martes a Sabados: 7AM - 21PM",
         description:`Esta tienda crea líneas de ropa, zapatos y accesorios para ayudar a los atletas a dar siempre lo mejor.
         Entre funcionalidad y diseño,nuestros productos cuentan con soluciones tecnológicas para ofrecer amortiguación, ligereza y estabilidad.`
-    }   
+    }
+    const theme = createTheme({
+        typography: {
+            fontFamily:'Times New Roman',
+        },
+      });
     return (
         <>  
         <Divider sx={{mt:0.5}}/>
         
             <footer>
-                <Box bgcolor={'white'} sx={{display:'flex',mt:0.2,pt:1,pb:1,flexDirection:{xs:"column",sm:"row"},fontFamily:'Times New Roman'}} >
+            <ThemeProvider theme={theme}>
+                <Box bgcolor={'white'} sx={{display:'flex',mt:0.2,pt:1,pb:1,flexDirection:{xs:"column",sm:"row"}}} >
                     <Container maxWidth='xl'sx={{flex:1.5,display: 'flex',flexDirection: 'column', pb:{xs:2},pt:1}}>
                         <Typography variant="h3" color="black"
                             as={Link} to={'/'}
@@ -36,7 +43,8 @@ export default function Footer() {
                                 textDecoration: 'none',
                                 display:'block',
                                 ':hover': { color: 'black' },
-                                color: 'black', mr: 1, pb:1
+                                color: 'black', mr: 1, pb:1,
+                                
                             }}
                         >
                             CLOTHING STORE
@@ -67,6 +75,7 @@ export default function Footer() {
                         </Box>
                     </Container>
                 </Box>
+                </ThemeProvider>
             </footer>
         </>
     );
