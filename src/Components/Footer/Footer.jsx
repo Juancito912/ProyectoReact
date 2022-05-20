@@ -27,7 +27,7 @@ export default function Footer() {
         typography: {
             fontFamily:'Times New Roman',
         },
-      });
+    });
     return (
         <>  
         <Divider sx={{mt:0.5}}/>
@@ -63,8 +63,8 @@ export default function Footer() {
                     </Container>
                     <Container maxWidth='lg' sx={{flex:1,display:'flex',flexDirection:'column', justifyContent:'center',width:{xs:'100%'},mr:3}}>
                         <Typography variant="h5" color="black" sx={{pb:2}}>Links Utiles</Typography>
-                        <Typography as={Link} to={'/'} variant="subtitle1" component={'div'} sx={{mb:1.2,textDecoration:'none',':hover': { color: 'black' }}} color={'black'}>Productos</Typography>
-                        <Typography as={Link} to={'/aboutUs'} variant="subtitle1" component={'div'} sx={{mb:1.2,textDecoration:'none',':hover': { color: 'black' }}} color={'black'}>Sobre Nosotros</Typography>
+                        <Typography as={Link} to={'/'} variant="subtitle1" component={'div'} sx={{mb:1.2,textDecoration:'none',':hover': { color: 'black' }}} color={'black'}>Home</Typography>
+                        <Typography as={Link} to={'/allProducts'} variant="subtitle1" component={'div'} sx={{mb:1.2,textDecoration:'none',':hover': { color: 'black' }}} color={'black'}>Productos</Typography>
                         <Typography as={Link} to={'/cart'} variant="subtitle1" component={'div'} sx={{mb:1.2,textDecoration:'none',':hover': { color: 'black' }}} color={'black'}>Carrito de Compras</Typography>
                         
                         <Box sx={{display:'flex',flexDirection:'row',justifyContent:'flex-start', alignItems:'center',pl:0,flexWrap:'wrap'}}>

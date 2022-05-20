@@ -26,13 +26,19 @@ export default function ItemDetail({product}) {
                 
                 <Typography variant='body1' component={'p'} sx={{}}>{product.description}</Typography>
                 <Typography variant='h6' component={'p'} sx={{fontSize:'1.7rem',color:'#bf360c'}}>$ {product.price}</Typography>
-                <Typography variant="body1" color="text.secondary">
+                
+                    {product.stock ===0?<Typography variant="h6" color="error">SIN STOCK</Typography>:  
+                    <Box>         
+                    <Typography variant="body1" color="text.secondary">
                     Cantidades elejidas: <strong>{unidad} Unidades</strong>.
                     </Typography>
-                <Typography variant="subtitle1" color="text.secondary">
+                    <Typography variant="subtitle1" color="text.secondary">
                     Stock Disponible: <strong> {product.stock} unidades.</strong>
-                </Typography>
-                <ButtonCount showAddCart initial={findInCart(product.id) !== -1?carrito[findInCart(product.id)].quantity:1} stock={product.stock} onAdd={onAdd} product={product}/>
+                    </Typography>
+                    <ButtonCount showAddCart initial={findInCart(product.id) !== -1?carrito[findInCart(product.id)].quantity:1} stock={product.stock} onAdd={onAdd} product={product}/>
+                    </Box>     
+                }
+
             </Container>
             
         </Box>
