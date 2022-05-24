@@ -71,9 +71,7 @@ export default function FormContainer (){
 
       const onSubmit =( data) => {
         
-        console.log(data);
         createOrder(data);
-        
       }
       const validateConfirmPassword= (string)=>{
         if(string === watch('password')){
@@ -157,7 +155,6 @@ export default function FormContainer (){
                 <InputLabel >Contraseña</InputLabel>
                 <OutlinedInput type={showPassword?'text':'password'} {...register('password',{
                     required:true,
-                    minLength:8,
                     maxLength:20,
                     validate:validatePassword
                 })}
@@ -176,8 +173,9 @@ export default function FormContainer (){
                 }
               />
                 {errors.password?.type === 'required' && <FormHelperText>Este campo no puede estar vacio</FormHelperText>}
+                {errors.password?.type === 'minLength' && <FormHelperText>La contraseña debe tener al menos 8 letras </FormHelperText>}
                 {errors.password?.type === 'validate' && <FormHelperText>
-                  La contraseña debe tener entre 8 y 20 caracteres e incluir al menos 1 letra, 1 número y 1 carácter especial
+                  La contraseña debe incluir al menos 1 letra, 1 número y 1 carácter especial
                 </FormHelperText>}
 
                 </FormControl> 
@@ -206,6 +204,7 @@ export default function FormContainer (){
                 }
                 />
                 {errors.confirmPassword?.type === 'required' && <FormHelperText>Este campo no puede estar vacio</FormHelperText>}
+                {errors.password?.type === 'minLength' && <FormHelperText>La contraseña debe tener al menos 8 letras </FormHelperText>}
                 {errors.confirmPassword?.type === 'validate' && <FormHelperText>Las contraseñas no son iguales</FormHelperText>}
                 </FormControl>
                 

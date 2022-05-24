@@ -20,7 +20,7 @@ function CartContext({children}){
             cantProducts += item.quantity;
         }
         setTotalQuantity(cantProducts);
-        console.log("hice get")
+        
     }
 
     const setQuantityItem = (id,qty) =>{
