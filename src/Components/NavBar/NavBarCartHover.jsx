@@ -52,7 +52,7 @@ export default function NavBarCartHover(){
             ))}
             
             <Typography variant="body1" color="initial" sx={{ width: '100%', bgcolor: 'background.paper' ,flexDirection:'column',pt:1,pl:1}}>
-                <strong>Total</strong>: $ {total} + I.V.A:21% = $ {total+total*0.21}
+                <strong>Total</strong>: $ {total} + I.V.A:21% = $ {total+total*0.21.toFixed(2)}
             </Typography>
         </Box>
         </>

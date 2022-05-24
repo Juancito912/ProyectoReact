@@ -32,7 +32,7 @@ export default function Footer() {
         <>  
         <Divider sx={{mt:0.5}}/>
         
-            <footer>
+            <Box component='footer' sx={{clear:'both'}}>
             <ThemeProvider theme={theme}>
                 <Box bgcolor={'white'} sx={{display:'flex',mt:0.2,pt:1,pb:1,flexDirection:{xs:"column",sm:"row"}}} >
                     <Container maxWidth='xl'sx={{flex:1.5,display: 'flex',flexDirection: 'column', pb:{xs:2},pt:1}}>
@@ -76,7 +76,7 @@ export default function Footer() {
                     </Container>
                 </Box>
                 </ThemeProvider>
-            </footer>
+            </Box>
         </>
     );
 }
