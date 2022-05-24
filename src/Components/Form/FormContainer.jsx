@@ -52,26 +52,19 @@ export default function FormContainer (){
                     setOrderId(res.id);
                     
                   })
-                  .catch((err) =>{
-                    console.log(err);
-                    setIsFailing(true);
-                  })
-                  
               })
           })
           .catch(err=>{
             console.log(err);
             setIsFailing(true);
           })
-          .finally(()=> {
-            setIsLouding(false);
-        })
-        
+          
+        setIsLouding(false)
       }
 
       const onSubmit =( data) => {
-        
         createOrder(data);
+        setIsLouding(false);
       }
       const validateConfirmPassword= (string)=>{
         if(string === watch('password')){
@@ -86,7 +79,7 @@ export default function FormContainer (){
         {(isFailing) && <Error404/>}
         {(orderId) && <Formfinish id={orderId}/>}
         
-        {!(isLouding)&& !(isFailing) && !(orderId) &&
+        {!(isLouding) && !(isFailing) && !(orderId) &&
           <form onSubmit={handleSubmit(onSubmit)}>
             
             <Box sx={{
@@ -155,7 +148,7 @@ export default function FormContainer (){
                 <InputLabel >Contraseña</InputLabel>
                 <OutlinedInput type={showPassword?'text':'password'} {...register('password',{
                     required:true,
-                    maxLength:20,
+                    minLength:8,
                     validate:validatePassword
                 })}
                 label={'Contraseña'}
@@ -175,7 +168,7 @@ export default function FormContainer (){
                 {errors.password?.type === 'required' && <FormHelperText>Este campo no puede estar vacio</FormHelperText>}
                 {errors.password?.type === 'minLength' && <FormHelperText>La contraseña debe tener al menos 8 letras </FormHelperText>}
                 {errors.password?.type === 'validate' && <FormHelperText>
-                  La contraseña debe incluir al menos 1 letra, 1 número y 1 carácter especial
+                  La contraseña debe incluir al menos 1 letra mayuscula, 1 número y 1 carácter especial
                 </FormHelperText>}
 
                 </FormControl> 
@@ -186,7 +179,6 @@ export default function FormContainer (){
                 <InputLabel >Confirmar Contraseña</InputLabel>
                 <OutlinedInput type={showPassword?'text':'password'} {...register('confirmPassword',{
                     required:true,
-                    minLength:8,
                     validate:validateConfirmPassword
                 })}
                 label={'Confirmar Contraseña'}
@@ -204,7 +196,6 @@ export default function FormContainer (){
                 }
                 />
                 {errors.confirmPassword?.type === 'required' && <FormHelperText>Este campo no puede estar vacio</FormHelperText>}
-                {errors.password?.type === 'minLength' && <FormHelperText>La contraseña debe tener al menos 8 letras </FormHelperText>}
                 {errors.confirmPassword?.type === 'validate' && <FormHelperText>Las contraseñas no son iguales</FormHelperText>}
                 </FormControl>
                 
