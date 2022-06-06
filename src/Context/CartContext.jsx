@@ -3,17 +3,20 @@ import React, { useState,createContext } from "react";
 export const Context = createContext();
 function CartContext({children}){
 
-    const [carrito,setCarrito] = useState([]);
     const [totalQuantity,setTotalQuantity] = useState(0);
 
-    const IsThereStock = (item)=>{
-        if(item.quantity > item.stock){
-            item.quantity = item.stock;
-            alert(`El stock disponible de este producto es de ${item.stock} Unidades`)
-            return false;
+    const getItemsStorage = () =>{
+        let cart = [];
+        for(let i = 0; i < localStorage.length; i++){
+            let key = localStorage.key(i);
+            let value = localStorage.getItem(key);
+            let item = JSON.parse(value);
+            cart.push(item);
         }
-        return true;
+        return cart;
     }
+    const [carrito,setCarrito] = useState(localStorage.length< 0 ? []: getItemsStorage());
+
     const getQuantity = () => {
         let cantProducts = 0;
         for (let item of carrito) {
@@ -22,35 +25,34 @@ function CartContext({children}){
         setTotalQuantity(cantProducts);
         
     }
+    
 
     const setQuantityItem = (id,qty) =>{
         let index = findInCart(id);
         carrito[index].quantity = qty;
         setCarrito(carrito);
+        localStorage.setItem(id,JSON.stringify(carrito[index]));
         getQuantity();
     }
+    
     const addItem = (item, quantity) =>{
-        let index = findInCart(item.id);
-        if(index !== -1){
-            carrito[index].quantity += quantity;
-            IsThereStock(carrito[index]);
-            setCarrito(carrito);
-        }else{
-            item.quantity = quantity;
+        
+        item.quantity = quantity;
             setCarrito([...carrito,item]);
-            
-        }
+            localStorage.setItem(item.id,JSON.stringify(item));
         getQuantity();
     }
 
     const removeItem = (itemId) => {
         let carritoFiltrado = carrito.filter(obj => obj.id !== itemId);
         setCarrito(carritoFiltrado);
+        localStorage.removeItem(itemId);
         getQuantity();
     }
 
     const clear = () => {
         setCarrito([]);
+        localStorage.clear();
         getQuantity();
     }
 

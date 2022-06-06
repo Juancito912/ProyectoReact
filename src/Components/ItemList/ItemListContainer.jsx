@@ -16,7 +16,6 @@ export default function ItemListContainer() {
         setIsFailing(false);
 
         const db = getFirestore();
-        console.log(categoryid);
         let productsRef;
         if(!categoryid){
             productsRef = collection(db,'Productos');
